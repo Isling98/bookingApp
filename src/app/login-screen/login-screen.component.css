@@ -1,0 +1,29 @@
+:host {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+div.input {
+  position: relative;
+}
+
+div.input label{
+  position: absolute;
+  left: 5px;
+  top: -20px;
+  font-size: 18px;
+}
+
+div.input input{
+  padding: 10px 15px;
+  font-size: 30px;
+  outline: black;
+}
+
+div.input {
+  margin-top: 30px;
+}
+
+

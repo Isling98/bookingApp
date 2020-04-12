@@ -1,1 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: dtuFont;
+  src: url("/assets/fonts/dtuFont.woff");
+}
+.vl{
+  border-left: 1px solid black;
+  height: 50px;
+}
+.btn{
+  border: none;
+  background-color: inherit;
+  padding: 14px 28px;
+  font-size: 25px;
+  font-family: NeoSansW01, serif;
+  cursor: pointer;
+  display: inline-block;
+}
+.btn:hover {background: #eee;}
+.success {color: green;}
+.info {color: dodgerblue;}
+.warning {color: orange;}
+.danger {color: red;}
+.default {color: black;}

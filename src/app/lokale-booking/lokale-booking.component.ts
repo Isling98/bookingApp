@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-lokale-booking',
@@ -10,6 +10,14 @@ export class LokaleBookingComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+  showhide() {
+    const click = document.getElementById('drop-content');
+    if (click.style.display === 'none') {
+      click.style.display = 'block';
+    } else {
+      click.style.display = 'none';
+    }
   }
 
 }

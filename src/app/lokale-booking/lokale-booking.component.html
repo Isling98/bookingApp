@@ -1,7 +1,89 @@
+
 <app-navigationbar></app-navigationbar>
-<div>
-  <img class="img-responsive" src="assets/img/booking.png">
+
+
+<div class="boxgray">
+<div class="dropdown">
+  <button (click)="showhide()"  class="btn" style="font-size: 20px" >Vælg lokale </button>
+  <div style="display: none" id="drop-content" >
+  <button class="dropbtn" ><a routerLink="/booking"> Grupperum 1</a></button>
+  <button class="dropbtn"><a routerLink="/booking"> Grupperum 2</a></button>
+  <button class="dropbtn"><a routerLink="/booking"> Grupperum 3</a></button>
+  <button class="dropbtn"><a routerLink="/booking"> Grupperum 4</a></button>
+  </div>
+
+</div>
 </div>
 
-<h3></h3>
+
+<br>
+<br>
+<br>
+<br>
+<div class="boxblue">
+  <p >Her skal der poppe en div op med lokalets tidsplan når man har valgt det oppe i toppen</p>
+  <br>
+  <p>Det er muligt at gøre denne blå boks større derfor kan vi bruge denne som felt</p>
+</div>
+
+
+<!--!>
+
+Template på venstre menu fundet her:
+https://www.html.am/templates/downloads/view-source.cfm?template=layout-templates/2-column-left-menu-header-footer.cfm
+
+
+<body>
+<app-navigationbar></app-navigationbar>
+<br>
+
+<div id="wrapper">
+
+  <main>
+    <div id="content">
+      <div class="innertube">
+        <h1>Her skal der komme tidsplan op når man klikker på lokalet til venstre</h1>
+      </div>
+    </div>
+  </main>
+
+  <nav id="nav">
+    <div class="innertube">
+      <h3>Stuen</h3>
+      <ul>
+        <li><a href="#">Grupperum 1</a></li>
+        <li><a href="#">Grupperum 2</a></li>
+        <li><a href="#">Grupperum 3</a></li>
+        <li><a href="#">Grupperum 4</a></li>
+        <li><a href="#">Grupperum 5</a></li>
+        <li><a href="#">Grupperum 6</a></li>
+      </ul>
+      <h3>1. Sal</h3>
+      <ul>
+        <li><a href="#">Åbent Grupperum 1</a></li>
+        <li><a href="#">Åbent Grupperum 2</a></li>
+        <li><a href="#">Åbent Grupperum 3</a></li>
+        <li><a href="#">Åbent Grupperum 4</a></li>
+        <li><a href="#">Åbent Grupperum 5</a></li>
+        <li><a href="#">Åbent Grupperum 6</a></li>
+      </ul>
+      <h3>Enkelt studiepladser</h3>
+      <ul>
+        <li><a href="#">Studieplads 1</a></li>
+        <li><a href="#">Studieplads 2</a></li>
+        <li><a href="#">Studieplads 3</a></li>
+        <li><a href="#">Studieplads 4</a></li>
+        <li><a href="#">Studieplads 5</a></li>
+        <li><a href="#">Studieplads 6</a></li>
+      </ul>
+    </div>
+  </nav>
+
+</div>
+
+</body>
+<-->
+
+
+
 

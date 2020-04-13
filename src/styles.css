@@ -15,6 +15,7 @@
   font-family: NeoSansW01, serif;
   cursor: pointer;
   display: inline-block;
+  border-radius: 25px;
 }
 .btn-danger{
   border: #ff9aa7;
@@ -37,3 +38,120 @@
 .mouseoverpointer{
   cursor: pointer;
 }
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  background-color: inherit;
+  color: black;
+  padding: 2px;
+  font-size: 16px;
+  font-family: NeoSansW01, serif;
+  border: none;
+}
+#drop-content{
+  position: absolute;
+  z-index: 1;
+
+}
+#drop-content a{
+  display: inline-block;
+  padding: 5px;
+  background: #eee ;
+  text-decoration: none;
+  margin-top: 2px;
+  position: relative;
+  border-radius: 25px;
+}
+
+.boxblue{
+  width: auto;
+  padding: 10px;
+  border-color: #ff9aa7;
+  background-color: aliceblue;
+  border-style: inherit;
+  border-radius: 25px;
+}
+.boxgray{
+  width: auto;
+  padding: 10px;
+  border-color: #ff9aa7;
+  background-color: rgba(211, 211, 211, 0.26);
+  border-radius: 25px;
+}
+
+
+body {
+  margin:0;
+  padding:0;
+  font-family: Sans-Serif;
+  line-height: 1.5em;
+}
+
+#header {
+  background: inherit;
+  height: 100px;
+}
+
+#header h1 {
+  margin: 0;
+  padding-top: 15px;
+}
+
+main {
+  padding-bottom: 10010px;
+  margin-bottom: -10000px;
+  float: left;
+  width: 100%;
+}
+
+#nav {
+  padding-bottom: 10010px;
+  margin-bottom: -10000px;
+  float: left;
+  width: 230px;
+  margin-left: -100%;
+  background: #eee;
+}
+
+#footer {
+  clear: left;
+  width: 100%;
+  background: #ccc;
+  text-align: center;
+  padding: 4px 0;
+}
+
+#wrapper {
+  overflow: hidden;
+}
+
+#content {
+  margin-left: 230px; /* Same as 'nav' width */
+}
+
+.innertube {
+  margin: 15px; /* Padding for content */
+  margin-top: 0;
+}
+
+p {
+  color: #555;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul a {
+  color: inherit;
+  text-decoration: none;
+}
+
+
+
+

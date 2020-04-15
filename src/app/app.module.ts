@@ -9,6 +9,7 @@ import {RouterModule, Routes} from '@angular/router';
 import { NavigationbarComponent } from './navigationbar/navigationbar.component';
 import { MybookingsComponent } from './mybookings/mybookings.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { HttpClientModule } from '@angular/common/http';
 
 const appRoutes: Routes = [
   {path: '', component: LoginScreenComponent},
@@ -31,7 +32,8 @@ const appRoutes: Routes = [
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

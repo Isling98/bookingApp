@@ -11,3 +11,10 @@
 
   </ul>
 </div>
+<div *ngFor="let post of bookingData | async">
+  {{post | json}}
+</div>
+<div>
+  <button (click)="createBooking()">Booking knap</button>
+  {{bookingPost | async | json}}
+</div>

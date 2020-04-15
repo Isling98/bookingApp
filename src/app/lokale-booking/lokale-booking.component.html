@@ -1,213 +1,56 @@
-<app-navigationbar></app-navigationbar>
-<div class="boxgray">
-<div class="dropdown">
-  <button (click)="showhide()"  class="btn" style="font-size: 20px" >Vælg lokale </button>
-  <div style="display: none" id="drop-content2" >
-  <button class="dropbtn" ><a routerLink="/booking"> Grupperum 1</a></button>
-  <button class="dropbtn"><a routerLink="/booking"> Grupperum 2</a></button>
-  <button class="dropbtn"><a routerLink="/booking"> Grupperum 3</a></button>
-  <button class="dropbtn"><a routerLink="/booking"> Grupperum 4</a></button>
-  </div>
-
-</div>
-</div>
-<br>
-
-<div class="boxblue">
-  <a>
-  <img src="/assets/img/booking.png" alt="text" class="lokalebillede">
-  <h1 class="lokaleheader">Lokale man har valgt</h1>
-  <h4 style="font-family: NeoSansW01, serif"> Personer tilladt: 6</h4>
-  </a>
-  <br>
-  <br>
-  <div align="center">
-    <p>Vælg dato for booking</p>
-    <label for="date"></label>
-    <input type="date" id="date" name="Tidspunkt">
-  </div>
-
-  <p style="font-family: NeoSansW01, serif" align="center">Vælg tidspunkt:</p>
-  <div  align="center">
-
-  <table width="20%">
-    <tr>
-      <button class="btnkalender">08-10</button>
-      <a style="padding: 5px"></a>
-      <button class="btnkalender">09-10</button>
-      <a style="padding: 5px"></a>
-      <button class="btnkalender">09-10</button>
-      <a style="padding: 5px"></a>
-
-    </tr>
-    <br>
-    <tr>
-      <button class="btnkalender" >08-10</button>
-      <a style="padding: 5px"></a>
-      <button class="btnkalender">09-10</button>
-      <a style="padding: 5px"></a>
-      <button class="btnkalender">09-10</button>
-      <a style="padding: 5px"></a>
-
-    </tr>
-    <br>
-    <tr>
-      <button class="btnkalender">08-10</button>
-      <a style="padding: 5px"></a>
-      <button class="btnkalender">09-10</button>
-      <a style="padding: 5px"></a>
-      <button class="btnkalender">09-10</button>
-      <a style="padding: 5px"></a>
-
-    </tr>
-  </table>
-
-  </div>
+<div class="container">
+        <app-navigationbar></app-navigationbar>
 </div>
 
-
-
-
   <br>
-  <!--!>
-  Box midt på siden gøres ved at ændre i styles #content margin-left 230px derved kan men bestemme hvor på siden den skal være
-  <-->
-  <br>
-  <br>
+<div class="container">
+  <div class="row boxblue">
+    <div class="col-lg-12">
+
+      <div class="input-group date" data-provide="datepicker">
+        <label>Vælg Dato
+          <input type="date" class="form-control">
+        </label>
+
+      </div>
 
 
-
-
-
-
-
-
-
-<!--!>
-Template på venstre menu fundet her:
-https://www.html.am/templates/downloads/view-source.cfm?template=layout-templates/2-column-left-menu-header-footer.cfm
-<-->
-
-<body>
-<app-navigationbar></app-navigationbar>
-<br>
-<div class="boxgray">
-  <div class="dropdown">
-    <button (click)="showhide()"  class="btn" style="font-size: 20px" >Vælg lokale </button>
-    <div style="display: none" id="drop-content" >
-      <button class="dropbtn" ><a routerLink="/booking"> Grupperum 1</a></button>
-      <button class="dropbtn"><a routerLink="/booking"> Grupperum 2</a></button>
-      <button class="dropbtn"><a routerLink="/booking"> Grupperum 3</a></button>
-      <button class="dropbtn"><a routerLink="/booking"> Grupperum 4</a></button>
     </div>
 
-  </div>
-</div>
-
-
-<div id="wrapper">
-
-  <main>
-    <div id="content">
-      <div class="innertube">
-        <div class="boxblue">
-          <a>
-
-            <h1 class="lokaleheader">Lokale man har valgt</h1>
-            <h4 style="font-family: NeoSansW01, serif"> Personer tilladt: 6</h4>
-          </a>
-          <br>
-          <br>
-          <div align="center" style="float: left">
-            Vælg dato for booking
-
-            <label for="date"></label>
-            <input type="date" id="date" name="Tidspunkt">
-          </div>
-          <br>
-          <br>
-          <div>
-            Vælg tidspunkt
-            <table width="30%">
-              <tr>
-                <button class="btnkalender">08-10</button>
-                <a style="padding: 5px"></a>
-                <button class="btnkalender">09-10</button>
-                <a style="padding: 5px"></a>
-                <button class="btnkalender">09-10</button>
-                <a style="padding: 5px"></a>
-
-              </tr>
-              <br>
-              <tr>
-                <button class="btnkalender" >08-10</button>
-                <a style="padding: 5px"></a>
-                <button class="btnkalender">09-10</button>
-                <a style="padding: 5px"></a>
-                <button class="btnkalender">09-10</button>
-                <a style="padding: 5px"></a>
-
-              </tr>
-              <br>
-              <tr>
-                <button class="btnkalender">08-10</button>
-                <a style="padding: 5px"></a>
-                <button class="btnkalender">09-10</button>
-                <a style="padding: 5px"></a>
-                <button class="btnkalender">09-10</button>
-                <a style="padding: 5px"></a>
-
-              </tr>
-            </table>
-
-          </div>
-        </div>
+    <br>
+    <div class="col-lg-6">
+      <div class="form-group left" >
+        <label for="sel1">Vælg Antal personer</label>
+        <select class="form-control" id="sel1">
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+          <option>6</option>
+          <option>7</option>
+          <option>8</option>
+          <option>9</option>
+          <option>10</option>
+          <option>11</option>
+          <option>12</option>
+        </select>
       </div>
     </div>
-  </main>
-
-  <nav id="nav">
-    <div class="innertube">
-      <img src="/assets/img/booking.png" alt="text" class="lokalebillede">
-
-
-      <!--!>
-      <h3>Stuen</h3>
-      <ul>
-        <li><a href="#">Grupperum 1</a></li>
-        <li><a href="#">Grupperum 2</a></li>
-        <li><a href="#">Grupperum 3</a></li>
-        <li><a href="#">Grupperum 4</a></li>
-        <li><a href="#">Grupperum 5</a></li>
-        <li><a href="#">Grupperum 6</a></li>
-      </ul>
-      <h3>1. Sal</h3>
-      <ul>
-        <li><a href="#">Åbent Grupperum 1</a></li>
-        <li><a href="#">Åbent Grupperum 2</a></li>
-        <li><a href="#">Åbent Grupperum 3</a></li>
-        <li><a href="#">Åbent Grupperum 4</a></li>
-        <li><a href="#">Åbent Grupperum 5</a></li>
-        <li><a href="#">Åbent Grupperum 6</a></li>
-      </ul>
-      <h3>Enkelt studiepladser</h3>
-      <ul>
-        <li><a href="#">Studieplads 1</a></li>
-        <li><a href="#">Studieplads 2</a></li>
-        <li><a href="#">Studieplads 3</a></li>
-        <li><a href="#">Studieplads 4</a></li>
-        <li><a href="#">Studieplads 5</a></li>
-        <li><a href="#">Studieplads 6</a></li>
-      </ul>
-      <-->
+    <div class="col-lg-2">
+      <label for="ankomme">Indtjekning</label>
+      <input type="number" class="form-control" id="ankomme">
     </div>
-  </nav>
+    <div class="col-lg-2">
+      <label for="gå">Udtjekning</label>
+      <input type="number" class="form-control" id="gå">
+    </div>
+    <div class="col-lg-2">
 
+    </div>
+  </div>
+
+
+  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
 </div>
-
-</body>
-
-
-
-
 

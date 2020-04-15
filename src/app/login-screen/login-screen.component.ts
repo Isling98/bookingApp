@@ -21,7 +21,7 @@ export class LoginScreenComponent implements OnInit {
     console.log(brugernavn, adgangskode);
 
     if (brugernavn === 'test' && adgangskode === 'test') {
-      this.router.navigate(['booking']);
+      this.router.navigate(['bookingTemplate.ts']);
     }
     return false;
   }

@@ -11,6 +11,7 @@ import { MybookingsComponent } from './mybookings/mybookings.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HttpClientModule } from '@angular/common/http';
 
+
 const appRoutes: Routes = [
   {path: '', component: LoginScreenComponent},
   {path: 'booking', component: LokaleBookingComponent},
@@ -28,7 +29,8 @@ const appRoutes: Routes = [
     LokaleBookingComponent,
     NavigationbarComponent,
     MybookingsComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+
   ],
   imports: [
     BrowserModule,

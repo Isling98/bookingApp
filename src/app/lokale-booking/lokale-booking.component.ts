@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-lokale-booking',
@@ -6,6 +7,9 @@ import {Component, Input, OnInit} from '@angular/core';
   styleUrls: ['./lokale-booking.component.css']
 })
 export class LokaleBookingComponent implements OnInit {
+  recipeForm: FormGroup;
+  @Input() newBooking: {personer: number, dato: number, start: number, slut: number};
+
 
   constructor() { }
 
@@ -19,5 +23,6 @@ export class LokaleBookingComponent implements OnInit {
       click.style.display = 'none';
     }
   }
+
 
 }

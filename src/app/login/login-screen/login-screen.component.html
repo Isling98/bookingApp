@@ -1,13 +1,21 @@
-<form (submit)="onSubmit($event)">
-  <div class="input">
-    <label>Brugernavn</label>
-    <input type="text">
+<div class="container">
+  <div class="col-lg-12">
+    <h3>Velkommen til DTU Ballerup Biblioteks onlineportal for lokalebookings!</h3>
+    <h4>- Indtast dine loginoplysninger tilhørende Brugerautorisationsmodulet</h4>
+    <hr>
+
+    <form (submit)="onSubmit($event)">
+      <div class="input">
+        <label>Brugernavn</label>
+        <input type="text">
+      </div>
+      <div class="input">
+        <label>Adgangskode</label>
+        <input type="password">
+      </div>
+      <div class="input">
+        <input type="submit"   value="Login">
+      </div>
+    </form>
   </div>
-  <div class="input">
-    <label>Adgangskode</label>
-    <input type="password">
-  </div>
-  <div class="input" align="center">
-    <input type="submit"   value="Login" style="font-family: NeoSansW01, serif">
-  </div>
-</form>
+</div>

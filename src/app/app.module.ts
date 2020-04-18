@@ -2,30 +2,30 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { TopbarComponent } from './topbar/topbar.component';
+import { NavigationComponent } from './navigation/navigation.component';
 import { LoginScreenComponent } from './login/login-screen/login-screen.component';
 import { LokaleBookingComponent } from './bookings/lokale-booking/lokale-booking.component';
-import { MybookingsComponent } from './bookings/mine-bookings/mybookings.component';
+import { MineBookingsComponent } from './bookings/mine-bookings/mine-bookings.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginFailedComponent } from './login/login-failed/login-failed.component';
 import {AppRoutingModule} from './app-routing.module';
-import { LokaleOversigtComponent } from './bookings/lokale-oversigt/lokale-oversigt.component';
-import { BrugerOplysningerComponent } from './bruger-oplysninger/bruger-oplysninger.component';
+import { LokaleoversigtComponent } from './bookings/lokaleoversigt/lokaleoversigt.component';
+import { BrugeroplysningerComponent } from './brugeroplysninger/brugeroplysninger.component';
 import { Gruppe25Component } from './gruppe25/gruppe25.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    TopbarComponent,
+    NavigationComponent,
     LoginScreenComponent,
     LokaleBookingComponent,
-    MybookingsComponent,
+    MineBookingsComponent,
     PageNotFoundComponent,
     LoginFailedComponent,
-    LokaleOversigtComponent,
-    BrugerOplysningerComponent,
+    LokaleoversigtComponent,
+    BrugeroplysningerComponent,
     Gruppe25Component,
 
   ],

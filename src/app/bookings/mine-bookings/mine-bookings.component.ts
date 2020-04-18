@@ -5,10 +5,10 @@ import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-mybookings',
-  templateUrl: './mybookings.component.html',
-  styleUrls: ['./mybookings.component.css']
+  templateUrl: './mine-bookings.component.html',
+  styleUrls: ['./mine-bookings.component.css']
 })
-export class MybookingsComponent implements OnInit {
+export class MineBookingsComponent implements OnInit {
   url = 'http://ec2-3-20-238-191.us-east-2.compute.amazonaws.com:8081/';
 
   bookingData: Observable<Bookings[]>;

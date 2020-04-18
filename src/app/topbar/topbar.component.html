@@ -1,13 +1,33 @@
-<div class="container">
+<!--<div class="container">
 <header>
     <img align="left" src="/assets/img/dtu-inside_red.png" alt="DTULogo" routerLink="/" class="mouseoverpointer">
-  <br>
-  <br>
+    <a class="vl"></a>
+    <button class="btn" align="center" routerLink="/bookingTemplate">Book nu</button>
+    <a class="vl"></a>
+    <button class="btn" routerLink="/minebookings">Mine bookinger</button>
+    <a class="vl"></a>
+
 </header>
-<br>
-</div>
+</div>-->
 
-
-
-
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <img src="/assets/img/dtu-inside_red.png" alt="DTULogo" routerLink="/" class="mouseoverpointer; img-responsive"
+           style="max-width: 225px; max-height: 45px;  min-width: 225px; min-height: 45px;">
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li routerLinkActive="active"><a routerLink="/booking">Lav Booking</a></li>
+        <li routerLinkActive="active"><a routerLink="/minebookings">Mine Bookings</a></li>
+        <li routerLinkActive="active"><a routerLink="/lokale-oversigt">Lokaleoversigt</a></li>
+        <li routerLinkActive="active"><a routerLink="/bruger-oplysninger">Brugeroplysninger</a></li>
+        <li routerLinkActive="active"><a routerLink="/gruppe25">Udviklet af Gruppe25</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li routerLinkActive="active" style="background-color: #990000"><a routerLink="/log-ud">Log ud</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
 

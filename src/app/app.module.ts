@@ -5,21 +5,13 @@ import { AppComponent } from './app.component';
 import { TopbarComponent } from './topbar/topbar.component';
 import { LoginScreenComponent } from './login-screen/login-screen.component';
 import { LokaleBookingComponent } from './lokale-booking/lokale-booking.component';
-import {RouterModule, Routes} from '@angular/router';
 import { NavigationbarComponent } from './navigationbar/navigationbar.component';
 import { MybookingsComponent } from './mybookings/mybookings.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HttpClientModule } from '@angular/common/http';
+import { LoginFailedComponent } from './login-failed/login-failed.component';
+import {AppRoutingModule} from './app-routing.module';
 
-
-const appRoutes: Routes = [
-  {path: '', component: LoginScreenComponent},
-  {path: 'booking', component: LokaleBookingComponent},
-  {path: 'minebookings', component: MybookingsComponent},
-  {path: 'not-found', component: PageNotFoundComponent},
-  /*Nedenstående path skal altid være den nederste path, ellers overwriter den de andre paths og vil altid redirecte!*/
-  {path: '**', redirectTo: '/not-found'}
-];
 
 @NgModule({
   declarations: [
@@ -30,12 +22,13 @@ const appRoutes: Routes = [
     NavigationbarComponent,
     MybookingsComponent,
     PageNotFoundComponent,
+    LoginFailedComponent,
 
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes),
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

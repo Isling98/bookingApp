@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {NgForm} from '@angular/forms';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-login-screen',
@@ -8,8 +8,10 @@ import {Router} from '@angular/router';
   styleUrls: ['./login-screen.component.css']
 })
 export class LoginScreenComponent implements OnInit {
+  userLoggedIn = false;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,
+              private route: ActivatedRoute) { }
 
   ngOnInit(): void {
   }
@@ -21,8 +23,13 @@ export class LoginScreenComponent implements OnInit {
     console.log(brugernavn, adgangskode);
 
     if (brugernavn === 'test' && adgangskode === 'test') {
-      this.router.navigate(['bookingTemplate.ts']);
+      this.userLoggedIn = true;
+      this.router.navigate(['minebookings'], {relativeTo: this.route});
+    } else {
+      this.userLoggedIn = false;
+      this.router.navigate(['forkert-adgangskode'], {relativeTo: this.route});
+
+
     }
-    return false;
   }
 }

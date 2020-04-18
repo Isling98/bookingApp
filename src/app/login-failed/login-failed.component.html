@@ -1,0 +1,13 @@
+<div class="container">
+  <h3>De indtastede loginoplysninger var forkerte!</h3>
+  <hr>
+  <p>Indtast din DTU-mailadresse herunder, og du vil få tilsendt dine loginoplysninger</p>
+  <hr>
+      <form (submit)="onMailSubmit($event)">
+        <div class="input">
+          <label>Emailadresse:   </label>
+          <input type="text">
+          <input type="submit"   value="Send">
+        </div>
+      </form>
+</div>

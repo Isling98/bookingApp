@@ -11,7 +11,7 @@ import {LokaleoversigtComponent} from './bookings/lokaleoversigt/lokaleoversigt.
 
 
 const appRoutes: Routes = [
-  {path: '', component: LoginScreenComponent},
+  {path: 'login', component: LoginScreenComponent},
   {path: 'ny-booking', component: LokaleBookingComponent},
   {path: 'mine-bookings', component: MineBookingsComponent},
   {path: 'lokaleoversigt', component: LokaleoversigtComponent},
@@ -20,7 +20,7 @@ const appRoutes: Routes = [
   {path: 'gruppe25', component: Gruppe25Component},
   {path: 'not-found', component: PageNotFoundComponent},
   /*Nedenstående path skal altid være den nederste path, ellers overwriter den de andre paths og vil altid redirecte!*/
-  {path: 'log-ud', redirectTo: ''},
+  {path: 'log-ud', redirectTo: 'login'},
   {path: '**', redirectTo: '/not-found'}
 ];
 

@@ -13,6 +13,7 @@ import {AppRoutingModule} from './app-routing.module';
 import { LokaleoversigtComponent } from './bookings/lokaleoversigt/lokaleoversigt.component';
 import { BrugeroplysningerComponent } from './brugeroplysninger/brugeroplysninger.component';
 import { Gruppe25Component } from './gruppe25/gruppe25.component';
+import {TopbarUdenknapperComponent} from './topbar-udenknapper/topbar-udenknapper.component';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { Gruppe25Component } from './gruppe25/gruppe25.component';
     LokaleoversigtComponent,
     BrugeroplysningerComponent,
     Gruppe25Component,
+    TopbarUdenknapperComponent
 
   ],
   imports: [

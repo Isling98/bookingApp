@@ -23,6 +23,9 @@ export class LokaleBookingComponent implements OnInit {
       click.style.display = 'none';
     }
   }
+  highlightTidspunkt() {
+    const click = document.getElementById('')
+  }
 
 
 }

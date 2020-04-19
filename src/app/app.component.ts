@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -7,5 +8,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'bookingApp';
+
+  constructor(public router: Router) {
+  }
 }
 //  Noget der tjekker om brugeren er logget ind og ikke skal vise topbaren, hvis de ikke er.. *ngIf="userLoggedIn"

@@ -1,5 +1,6 @@
 <div id="fullPage">
-  <app-topbar></app-topbar>
+  <app-topbar *ngIf="!router.url.includes('login')"></app-topbar>
+  <app-topbar-udenknapper *ngIf="router.url.includes('login')"></app-topbar-udenknapper>
 
   <router-outlet></router-outlet>
 

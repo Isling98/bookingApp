@@ -8,3 +8,4 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'bookingApp';
 }
+//  Noget der tjekker om brugeren er logget ind og ikke skal vise topbaren, hvis de ikke er.. *ngIf="userLoggedIn"

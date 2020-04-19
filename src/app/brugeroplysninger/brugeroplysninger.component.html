@@ -1,5 +1,24 @@
 <div class="container">
   <div class="col-lg-12">
-<p>Her skal brugerens oplysninger hentes fra databasen/brugerautorisationsmodulet og vises</p>
+    <p>Her skal brugerens oplysninger hentes fra databasen/brugerautorisationsmodulet og vises</p>
+    <hr>
+    <h3>Brugeroplysninger</h3>
+    <hr>
+      <div class="col-lg-10" align="left">
+              <img src="/assets/img/empty-profile.png" alt="NoPicture" align="right"
+                   style="max-width: 300px; max-height: 250px;  min-width: 300px; min-height: 250px;">
+        <p><strong>Brugernavn: </strong>{{bruger.brugernavn}}</p>
+        <p><strong>Email: </strong>{{bruger.email}}</p>
+        <p><strong>Sidst aktiv: </strong>{{bruger.sidstAktiv}}</p>
+        <p><strong>CampusnetID: </strong>{{bruger.campusnetID}}</p>
+        <p><strong>Studieretning: </strong>{{bruger.studieretning}}</p>
+        <p><strong>Fornavn: </strong>{{bruger.fornavn}}</p>
+        <p><strong>Efternavn: </strong>{{bruger.efternavn}}</p>
+        <p><strong>Adgangskode: </strong>{{bruger.adgangskode}}</p>
+        <p><strong>Hobby: </strong>{{bruger.hobby}}</p>
+        <p><strong>Webside: </strong>{{bruger.webside}}</p>
+        <hr>
+        <p>Test for output af GET REQUEST: {{testData}}</p>
+      </div>
   </div>
 </div>

@@ -20,12 +20,16 @@ export class BrugeroplysningerComponent implements OnInit {
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
-    const headers = {Username: 's180077', Password: '123'}
+    /*const headers = {Username: 's180077', Password: '123'}
     this.http.get<any>('http://ec2-3-20-238-191.us-east-2.compute.amazonaws.com:8082/users/19',
       {headers}).subscribe
     (data => {this.testData = data.total;
     });
-    console.log(this.testData);
+    console.log(this.testData);*/
+
+    // Test med et anden API
+    this.http.get<JSON>('https://random-word-api.herokuapp.com/word?number=10').subscribe
+    (data => {this.testData = data; });
   }
 
 }

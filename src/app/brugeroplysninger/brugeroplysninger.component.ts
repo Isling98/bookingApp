@@ -16,7 +16,7 @@ export class BrugeroplysningerComponent implements OnInit {
     'http://www.diplom.dtu.dk/');
 
   public testData: JSON;
-  public testBruger: JSON;
+  public testBruger: string;
 
   // Den nye kan findes her: http://ec2-3-20-238-191.us-east-2.compute.amazonaws.com:8082/
   // hvor i kan logge ind med username s180077 pass 123
@@ -35,10 +35,8 @@ export class BrugeroplysningerComponent implements OnInit {
       })
     };
 
-    this.http.get<JSON>('http://ec2-3-20-238-191.us-east-2.compute.amazonaws.com:8082/users',
-      {headers: headerOptions.headers}).subscribe
-    (data => {this.testBruger = data;
-    });
+    this.http.get<JSON>('http://ec2-3-20-238-191.us-east-2.compute.amazonaws.com:8082/users').subscribe
+    (data => {this.testBruger = JSON.stringify(data); });
     console.log(this.testBruger);
 
     // Test med et anden API

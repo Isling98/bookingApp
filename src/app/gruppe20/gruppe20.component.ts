@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-gruppe25',
-  templateUrl: './gruppe25.component.html',
-  styleUrls: ['./gruppe25.component.css']
+  templateUrl: './gruppe20.component.html',
+  styleUrls: ['./gruppe20.component.css']
 })
-export class Gruppe25Component implements OnInit {
+export class Gruppe20Component implements OnInit {
 
   constructor() { }
 

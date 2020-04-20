@@ -12,7 +12,7 @@ import { LoginFailedComponent } from './login/login-failed/login-failed.componen
 import {AppRoutingModule} from './app-routing.module';
 import { LokaleoversigtComponent } from './bookings/lokaleoversigt/lokaleoversigt.component';
 import { BrugeroplysningerComponent } from './brugeroplysninger/brugeroplysninger.component';
-import { Gruppe25Component } from './gruppe25/gruppe25.component';
+import { Gruppe20Component } from './gruppe20/gruppe20.component';
 import {TopbarUdenknapperComponent} from './topbar-udenknapper/topbar-udenknapper.component';
 
 
@@ -27,7 +27,7 @@ import {TopbarUdenknapperComponent} from './topbar-udenknapper/topbar-udenknappe
     LoginFailedComponent,
     LokaleoversigtComponent,
     BrugeroplysningerComponent,
-    Gruppe25Component,
+    Gruppe20Component,
     TopbarUdenknapperComponent
 
   ],

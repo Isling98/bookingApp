@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
   styleUrls: ['./mine-bookings.component.css']
 })
 export class MineBookingsComponent implements OnInit {
-  url = 'http://ec2-3-20-238-191.us-east-2.compute.amazonaws.com:8081/';
+  url = 'https://ec2-3-20-238-191.us-east-2.compute.amazonaws.com:8082/';
 
   bookingData: Observable<Bookings[]>;
   bookingPost: Observable<Bookings[]>;
@@ -45,6 +45,7 @@ export class MineBookingsComponent implements OnInit {
       timeblock: 3,
       roomId: 2,
       userId: 4,
+      username: 's180077',
       month: 11,
       year: 2020,
       day: 11

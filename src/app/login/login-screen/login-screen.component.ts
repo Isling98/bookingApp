@@ -24,10 +24,10 @@ export class LoginScreenComponent implements OnInit {
 
     if (brugernavn === 'test' && adgangskode === 'test') {
       this.userLoggedIn = true;
-      this.router.navigate(['mine-bookings'], {relativeTo: this.route});
+      this.router.navigate(['/ny-booking'], {relativeTo: this.route});
     } else {
       this.userLoggedIn = false;
-      this.router.navigate(['forkert-adgangskode'], {relativeTo: this.route});
+      this.router.navigate(['/forkert-adgangskode'], {relativeTo: this.route});
 
 
     }

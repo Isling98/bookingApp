@@ -11,6 +11,7 @@ import {LokaleoversigtComponent} from './bookings/lokaleoversigt/lokaleoversigt.
 
 
 const appRoutes: Routes = [
+  {path: '', redirectTo: '/login', pathMatch: 'full'},
   {path: 'login', component: LoginScreenComponent},
   {path: 'ny-booking', component: LokaleBookingComponent},
   {path: 'mine-bookings', component: MineBookingsComponent},

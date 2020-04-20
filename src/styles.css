@@ -76,7 +76,7 @@
 }
 
 .boxblue{
-  width: auto;
+  width: 1140px;
   padding: 10px;
   border-color: #ff9aa7;
   background-color: aliceblue;
@@ -87,8 +87,11 @@
   width: auto;
   padding: 10px;
   border-color: #ff9aa7;
-  background-color: rgba(211, 211, 211, 0.26);
+  background-color: rgba(211, 211, 211, 0.17);
   border-radius: 25px;
+}
+.boxgraygradient{
+  background-image: linear-gradient(#ededed, rgba(238, 238, 238, 0.17), rgba(150, 150, 150, 0.29));
 }
 
 

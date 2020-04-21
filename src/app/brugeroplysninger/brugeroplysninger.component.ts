@@ -18,6 +18,14 @@ export class BrugeroplysningerComponent implements OnInit {
   public testData: JSON;
   public testBruger: string;
 
+  // Test test skal være i service
+  public id: number;
+  public username: string;
+  public firstName: string;
+  public lastName: string;
+  public bookingList: number[];
+
+
   // Den nye kan findes her: http://ec2-3-20-238-191.us-east-2.compute.amazonaws.com:8082/
   // hvor i kan logge ind med username s180077 pass 123
 
@@ -35,8 +43,14 @@ export class BrugeroplysningerComponent implements OnInit {
       })
     };
 
-    this.http.get<JSON>('http://ec2-3-20-238-191.us-east-2.compute.amazonaws.com:8082/users').subscribe
+    this.http.get('http://ec2-3-20-238-191.us-east-2.compute.amazonaws.com:8082/users/18').subscribe
     (data => {this.testBruger = JSON.stringify(data); });
+    console.log(this.testBruger);
+
+    // Test med opdeling af data:
+    this.http.get<JSON>('http://ec2-3-20-238-191.us-east-2.compute.amazonaws.com:8082/users/19').subscribe
+    (data => {this.id = data['id'], this.username = data['username'],
+      this.firstName = data['firstName'], this.lastName = data['lastName'], this.bookingList = data['bookingList']; });
     console.log(this.testBruger);
 
     // Test med et anden API

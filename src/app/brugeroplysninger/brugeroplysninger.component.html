@@ -7,19 +7,24 @@
       <div class="col-lg-10" align="left">
               <img src="/assets/img/empty-profile.png" alt="NoPicture" align="right"
                    style="max-width: 300px; max-height: 250px;  min-width: 300px; min-height: 250px;">
-        <p><strong>Brugernavn: </strong>{{bruger.brugernavn}}</p>
+        <p><strong>Brugernavn: </strong>{{bruger.brugernavn}}/ <strong>Rigtige brugernavn:</strong> {{username}}</p>
         <p><strong>Email: </strong>{{bruger.email}}</p>
         <p><strong>Sidst aktiv: </strong>{{bruger.sidstAktiv}}</p>
         <p><strong>CampusnetID: </strong>{{bruger.campusnetID}}</p>
         <p><strong>Studieretning: </strong>{{bruger.studieretning}}</p>
-        <p><strong>Fornavn: </strong>{{bruger.fornavn}}</p>
-        <p><strong>Efternavn: </strong>{{bruger.efternavn}}</p>
+        <p><strong>Fornavn: </strong>{{bruger.fornavn}}/ <strong>Rigtige fornavn:</strong> {{firstName}}</p>
+        <p><strong>Efternavn: </strong>{{bruger.efternavn}}/ <strong>Rigtige efternavn: </strong>{{lastName}}</p>
         <p><strong>Adgangskode: </strong>{{bruger.adgangskode}}</p>
         <p><strong>Hobby: </strong>{{bruger.hobby}}</p>
         <p><strong>Webside: </strong>{{bruger.webside}}</p>
         <hr>
-        <p>Test for output af GET REQUEST fra eget API: {{testBruger}}</p>
-        <p>Test for output af GET REQUEST fra Random Word API: {{testData}}</p>
+        <p><strong>Brugerens lokalebooking: </strong>{{bookingList}}</p>
+        <hr>
+        <p>Test for output af GET REQUEST fra eget API uden opdeling: {{testBruger}}</p>
+        <p>Test for output af GET REQUEST fra Random Word API uden CORS fejl: {{testData}}</p>
+    <hr>
+        <p>TEST: ID: {{id}}, Fornavn: {{firstName}}, Efternavn: {{lastName}}, Studienummer: {{username}},
+        Lokalebookings: {{bookingList}}</p>
       </div>
   </div>
 </div>

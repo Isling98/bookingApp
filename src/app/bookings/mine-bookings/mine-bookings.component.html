@@ -1,22 +1,23 @@
 <div class="container">
 <div class="col-xs-12">
   <div class="row boxblue">
+    <input type="number" value="{{booking.id}}"><button (click)="fetchData()">Opdater booking</button>
     <ul>
+      <li> Booking: {{booking.id}}.  Room {{booking.roomId}}.  from {{booking.timeblock}}  <button class="btn-danger" style="font-size: small;color: black">Delete this bookingTemplate</button></li>
       <li> Room 4 from 16-18 <button class="btn-danger" style="font-size: small;color: black">Delete this bookingTemplate</button> </li>
       <li> Room 4 from 16-18 <button class="btn-danger" style="font-size: small;color: black">Delete this bookingTemplate</button> </li>
       <li> Room 4 from 16-18 <button class="btn-danger" style="font-size: small;color: black">Delete this bookingTemplate</button> </li>
       <li> Room 4 from 16-18 <button class="btn-danger" style="font-size: small;color: black">Delete this bookingTemplate</button> </li>
-      <li> Room 4 from 16-18 <button class="btn-danger" style="font-size: small;color: black">Delete this bookingTemplate</button> </li>
-
-
     </ul>
   </div>
 </div>
 <div *ngFor="let post of bookingData | async">
   {{post | json}}
 </div>
+  <!--!>
 <div>
   <button (click)="createBooking()">Booking knap</button>
   {{bookingPost | async | json}}
 </div>
+<-->
 </div>

@@ -1,4 +1,4 @@
-export interface Bookings {
+export class BookingModel {
   id: number;
   timeblock: number;
   roomId: number;

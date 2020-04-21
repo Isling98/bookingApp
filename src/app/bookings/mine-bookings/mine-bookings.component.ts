@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClient, HttpParams} from '@angular/common/http';
-import { Bookings } from './bookings';
+import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import { Observable } from 'rxjs';
+import {BookingModel} from '../booking.model';
 
 @Component({
   selector: 'app-mybookings',
@@ -11,17 +11,30 @@ import { Observable } from 'rxjs';
 export class MineBookingsComponent implements OnInit {
   url = 'https://ec2-3-20-238-191.us-east-2.compute.amazonaws.com:8082/';
 
-  bookingData: Observable<Bookings[]>;
-  bookingPost: Observable<Bookings[]>;
+  bookingData: Observable<BookingModel[]>;
+  bookingPost: Observable<BookingModel[]>;
+  public booking: BookingModel = new BookingModel();
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
     this.fetchData();
+
+    const username = 's180077';
+    const password = '123';
+
+    const authorizationData = 'Basic ' + btoa(username + ':' + password);
+
+    const headerOptions = {
+      headers: new HttpHeaders({
+        Authorization: authorizationData
+      })
+    };
   }
 
 
-  private fetchData() {
+
+  public fetchData() {
     /**
      * Man kan også benytte httpParams til at authenticate headers - dvs hvis vi kan få gjort sådan at login username
      * sendes med i header, så kan params lettere finde de bookings der passer til login username el. lign.
@@ -30,16 +43,25 @@ export class MineBookingsComponent implements OnInit {
      * Lige nu virker params ikke ordentlig, men tænker det måske er et problem med hvordan det er sat op i REST-api'et
      */
 
-    const params = new HttpParams().set('timeblock', '2');
+    // get booking 34
+    this.http.get<JSON>('http://ec2-3-20-238-191.us-east-2.compute.amazonaws.com:8082/bookings/34').subscribe(data => {this.booking.id = data['id'],
+      this.booking.roomId = data['roomId'], this.booking.timeblock = data['timeblock'], this.booking.username = data['username']; });
 
-    this.bookingData = this.http.get<Bookings[]>(this.url + '/bookings', {params});
+    console.log(this.booking);
   }
 
+  hentBooking() {
+    // tslint:disable-next-line:max-line-length
+
+
+  }
+  /*
   createBooking() {
     /**
      * I denne metode kan de hardcoded værdier ændres til nogle værdier, som man får fra html filen vha. data bindings
      * så det kommer til at hænge bedre sammen.
      */
+  /*
     const data: Bookings = {
       id: 5,
       timeblock: 3,
@@ -53,6 +75,7 @@ export class MineBookingsComponent implements OnInit {
     this.bookingPost = this.http.post<Bookings[]>(this.url + '/bookings', data);
 
   }
+**/
 
   /**
    * Her kunne laves en delete-metode, som fjerne ud fra bookingens id.

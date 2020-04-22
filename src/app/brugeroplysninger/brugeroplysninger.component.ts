@@ -13,6 +13,7 @@ export class BrugeroplysningerComponent implements OnInit {
 
   // Dummy data - skal selvfølgelig hente det rigtige senere..
   public bruger: Bruger = this.brugerService.getBruger();
+  public isUserLoggedIn = this.loginService.getUserLoggedIn();
 
 
   // Den nye kan findes her: http://ec2-3-20-238-191.us-east-2.compute.amazonaws.com:8082/
@@ -23,17 +24,7 @@ export class BrugeroplysningerComponent implements OnInit {
               private brugerService: BrugerService) { }
 
   ngOnInit() {
-    if (this.loginService.getUserLoggedIn()) {
-    /*const username = 's180077';
-    const password = '123';
-
-    const authorizationData = 'Basic ' + btoa(username + ':' + password);
-
-    const headerOptions = {
-      headers: new HttpHeaders({
-        Authorization: authorizationData
-      })
-    };*/
+    if (this.isUserLoggedIn) {
 
       // Test med opdeling af data:
     this.http.get<JSON>('http://ec2-3-20-238-191.us-east-2.compute.amazonaws.com:8082/users/19').subscribe

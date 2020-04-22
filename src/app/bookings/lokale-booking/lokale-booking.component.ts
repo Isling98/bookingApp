@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {FormGroup} from '@angular/forms';
+import {LoginService} from '../../shared-services/login.service';
 
 @Component({
   selector: 'app-lokale-booking',
@@ -7,11 +8,13 @@ import {FormGroup} from '@angular/forms';
   styleUrls: ['./lokale-booking.component.css']
 })
 export class LokaleBookingComponent implements OnInit {
+  public isUserLoggedIn = this.loginService.getUserLoggedIn();
+
   recipeForm: FormGroup;
   @Input() newBooking: {personer: number, dato: number, start: number, slut: number};
 
 
-  constructor() { }
+  constructor(private loginService: LoginService) { }
 
   ngOnInit(): void {
   }

@@ -1,6 +1,6 @@
-<div class="container">
-  <div class="row boxblue">
-    <div class="col-lg-12">
+<div class="container" *ngIf="isUserLoggedIn">
+  <div class="col-lg-12">
+    <div class="row boxblue">
 
       <div class="input-group date" data-provide="datepicker">
         <label style="font-family: NeoSansW01, serif">Vælg Dato
@@ -106,8 +106,10 @@
 
     </div>
   </div>
-
-
-
+  </div>
+</div>
+<div class="container" *ngIf="!isUserLoggedIn">
+  <div class="col-lg-12">
+    <h3>Du skal være logget ind for at tilgå denne side!</h3>
   </div>
 </div>

@@ -1,6 +1,6 @@
 <div class="container">
-<div class="col-xs-12">
-  <div class="row boxblue">
+<div class="col-lg-12">
+  <div class="row boxblue" *ngIf="isUserLoggedIn">
     <input type="number" value="{{booking.userId}}"><button (click)="fetchData()">Opdater booking</button>
     <p *ngIf="hentetBookings.length < 1">Ingen bookings</p>
     <ul *ngIf="hentetBookings.length >= 1">
@@ -15,5 +15,7 @@
     <-->
     </ul>
   </div>
+  <h3 *ngIf="!isUserLoggedIn">Du skal være logget ind for at tilgå denne side!</h3>
 </div>
 </div>
+

@@ -3,6 +3,7 @@ import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import {BookingModel} from '../booking.model';
 import {map} from 'rxjs/operators';
+import {LoginService} from '../../shared-services/login.service';
 
 @Component({
   selector: 'app-mybookings',
@@ -10,12 +11,14 @@ import {map} from 'rxjs/operators';
   styleUrls: ['./mine-bookings.component.css']
 })
 export class MineBookingsComponent implements OnInit {
+  public isUserLoggedIn = this.loginService.getUserLoggedIn();
 
   public booking: BookingModel = new BookingModel();
 
   hentetBookings = [];
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient,
+              private loginService: LoginService) {}
 
   ngOnInit(): void {
     this.fetchData();

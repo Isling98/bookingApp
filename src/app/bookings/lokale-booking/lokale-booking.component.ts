@@ -8,7 +8,7 @@ import {FormGroup} from '@angular/forms';
 })
 export class LokaleBookingComponent implements OnInit {
   recipeForm: FormGroup;
-  @Input() newBooking: {personer: number, dato: number, start: number, slut: number};
+  @Input() Booking: {personer: number, dato: number, start: number, slut: number};
 
 
   constructor() { }
@@ -24,8 +24,10 @@ export class LokaleBookingComponent implements OnInit {
     }
   }
   highlightTidspunkt() {
-    const click = document.getElementById('')
+    const click = document.getElementById('');
   }
+  // Booking
+
 
 
 }

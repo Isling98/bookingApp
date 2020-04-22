@@ -18,17 +18,6 @@
   border-radius: 10px;
 }
 
-.btn-danger{
-  border: #ff9aa7;
-  background-color: inherit;
-  padding: 14px 28px;
-  font-size: 25px;
-  font-family: NeoSansW01, serif;
-  cursor: pointer;
-  display: inline-block;
-
-}
-.btn-danger:hover {background: #ff4d4d}
 .success {color: green;}
 .info {color: dodgerblue;}
 .warning {color: orange;}

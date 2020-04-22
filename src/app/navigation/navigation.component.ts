@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router';
+import {LoginService} from '../shared-services/login.service';
 
 @Component({
   selector: 'app-topbar',
@@ -8,10 +8,13 @@ import {Router} from '@angular/router';
 })
 export class NavigationComponent implements OnInit {
 
-  constructor() { }
+  constructor(private loginService: LoginService) { }
 
 
   ngOnInit(): void {
   }
 
+  logUd() {
+    this.loginService.setUserLoggedIn(false);
+  }
 }

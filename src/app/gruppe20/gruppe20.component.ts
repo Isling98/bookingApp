@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {BrugerService} from '../shared-services/bruger.service';
+import {Bruger} from '../brugeroplysninger/bruger.model';
 
 @Component({
   selector: 'app-gruppe25',
@@ -6,8 +8,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./gruppe20.component.css']
 })
 export class Gruppe20Component implements OnInit {
+  public bruger: Bruger = this.brugerService.getBruger();
 
-  constructor() { }
+  constructor(private brugerService: BrugerService) { }
 
   ngOnInit(): void {
   }

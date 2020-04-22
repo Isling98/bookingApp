@@ -1,13 +1,11 @@
 <div class="container">
   <div class="col-lg-12">
-    <p>Her skal brugerens oplysninger hentes fra databasen/brugerautorisationsmodulet og vises</p>
-    <hr>
     <h3>Brugeroplysninger</h3>
     <hr>
       <div class="col-lg-10" align="left">
               <img src="/assets/img/empty-profile.png" alt="NoPicture" align="right"
-                   style="max-width: 300px; max-height: 250px;  min-width: 300px; min-height: 250px;">
-        <p><strong>Brugernavn: </strong>{{bruger.brugernavn}}/ <strong>Rigtige brugernavn:</strong> {{username}}</p>
+                   style="max-width: 200px; max-height: 150px;  min-width: 200px; min-height: 150px;">
+        <!--<p><strong>Brugernavn: </strong>{{bruger.brugernavn}}/ <strong>Rigtige brugernavn:</strong> {{username}}</p>
         <p><strong>Email: </strong>{{bruger.email}}</p>
         <p><strong>Sidst aktiv: </strong>{{bruger.sidstAktiv}}</p>
         <p><strong>CampusnetID: </strong>{{bruger.campusnetID}}</p>
@@ -21,10 +19,13 @@
         <p><strong>Brugerens lokalebooking: </strong>{{bookingList}}</p>
         <hr>
         <p>Test for output af GET REQUEST fra eget API uden opdeling: {{testBruger}}</p>
-        <p>Test for output af GET REQUEST fra Random Word API uden CORS fejl: {{testData}}</p>
-    <hr>
-        <p>TEST: ID: {{id}}, Fornavn: {{firstName}}, Efternavn: {{lastName}}, Studienummer: {{username}},
-        Lokalebookings: {{bookingList}}</p>
+        <p>Test for output af GET REQUEST fra Random Word API uden CORS fejl: {{testData}}</p>-->
+        <p><strong>ID: </strong>{{bruger.id}}</p>
+        <p><strong>Brugernavn: </strong>{{bruger.username}}</p>
+        <p><strong>Fornavn: </strong>{{bruger.firstName}}</p>
+        <p><strong>Efternavn: </strong>{{bruger.lastName}}</p>
+        <p><strong>Brugerens aktuelle lokalebookings: </strong>{{bruger.bookingList}}</p>
+        <hr>
       </div>
   </div>
 </div>

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {Bruger} from './bruger.model';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {LoginService} from '../shared-services/login.service';
 import {BrugerService} from '../shared-services/bruger.service';
+import {Bruger} from './bruger.model';
 
 @Component({
   selector: 'app-bruger-oplysninger',
@@ -14,16 +14,6 @@ export class BrugeroplysningerComponent implements OnInit {
   // Dummy data - skal selvfølgelig hente det rigtige senere..
   public bruger: Bruger = this.brugerService.getBruger();
 
-  public testData: JSON;
-  public testBruger: string;
-
-  // Test test skal være i service
-  public id: number;
-  public username: string;
-  public firstName: string;
-  public lastName: string;
-  public bookingList: number[];
-
 
   // Den nye kan findes her: http://ec2-3-20-238-191.us-east-2.compute.amazonaws.com:8082/
   // hvor i kan logge ind med username s180077 pass 123
@@ -34,7 +24,7 @@ export class BrugeroplysningerComponent implements OnInit {
 
   ngOnInit() {
     if (this.loginService.getUserLoggedIn()) {
-    const username = 's180077';
+    /*const username = 's180077';
     const password = '123';
 
     const authorizationData = 'Basic ' + btoa(username + ':' + password);
@@ -43,21 +33,21 @@ export class BrugeroplysningerComponent implements OnInit {
       headers: new HttpHeaders({
         Authorization: authorizationData
       })
-    };
+    };*/
 
-    this.http.get('http://ec2-3-20-238-191.us-east-2.compute.amazonaws.com:8082/users/18').subscribe
-    (data => {this.testBruger = JSON.stringify(data); });
-    console.log(this.testBruger);
-
-    // Test med opdeling af data:
+      // Test med opdeling af data:
     this.http.get<JSON>('http://ec2-3-20-238-191.us-east-2.compute.amazonaws.com:8082/users/19').subscribe
-    (data => {this.id = data['id'], this.username = data['username'],
-      this.firstName = data['firstName'], this.lastName = data['lastName'], this.bookingList = data['bookingList']; });
-    console.log(this.testBruger);
+      (data => {this.bruger.id = data['id'], this.bruger.username = data['username'],
+        this.bruger.firstName = data['firstName'], this.bruger.lastName = data['lastName'],
+        this.bruger.bookingList = data['bookingList']; });
 
-    // Test med et anden API
-    this.http.get<JSON>('https://random-word-api.herokuapp.com/word?number=10').subscribe
-    (data => {this.testData = data; });
+    // Venter på at data er hentet helt ned og skriver så til bruger.service.
+    setTimeout(() => {
+          console.log(this.bruger);
+          this.brugerService.setBruger(this.bruger);
+          console.log(this.brugerService.getBruger());
+        },
+        5000);
   } else { this.bruger = null; }
   }
 }

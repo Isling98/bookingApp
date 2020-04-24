@@ -3,7 +3,7 @@
     <div class="col-lg-3">
 
       <mat-form-field>
-        <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+        <input matInput [matDatepicker]="picker" placeholder="Choose a date" id="datepicker">
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
@@ -13,6 +13,11 @@
       <button class="btn btn-primary" id="findknap">Find ledige lokaler</button>
     </div>
   </div>
+
+  <p *ngIf="hentetBookings.length < 1">Ingen bookings</p>
+  <ul *ngIf="hentetBookings.length >= 1">
+    <li *ngFor="let data of hentetBookings">Booking: {{data.id}} - Room: {{data.roomId}} - From: {{data.timeblock}}
+  </ul>
 
 <div class="row">
     <div class="col-lg-6">

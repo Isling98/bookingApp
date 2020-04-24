@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {NgForm} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {LoginService} from '../../shared-services/login.service';
+import {getRootDirs} from '@angular/compiler-cli/src/ngtsc/util/src/typescript';
 
 @Component({
   selector: 'app-login-screen',
@@ -26,8 +26,14 @@ export class LoginScreenComponent implements OnInit {
 
 
 
+
+
+
+
+
     if (brugernavn === 'test' && adgangskode === 'test') {
       this.loginService.setUserLoggedIn(true);
+
       console.log(this.loginService.getUserLoggedIn());
       this.router.navigate(['/ny-booking'], {relativeTo: this.route});
     } else {

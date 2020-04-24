@@ -28,7 +28,8 @@ import {TopbarUdenknapperComponent} from './topbar-udenknapper/topbar-udenknappe
     LokaleoversigtComponent,
     BrugeroplysningerComponent,
     Gruppe20Component,
-    TopbarUdenknapperComponent
+    TopbarUdenknapperComponent,
+
 
   ],
   imports: [

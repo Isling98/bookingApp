@@ -1,5 +1,8 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {FormGroup} from '@angular/forms';
+import {Component, Input, NgModule, OnInit} from '@angular/core';
+import {FormControl, FormGroup} from '@angular/forms';
+import { MaterialModule } from './material.module';
+
+
 
 @Component({
   selector: 'app-lokale-booking',
@@ -8,7 +11,10 @@ import {FormGroup} from '@angular/forms';
 })
 export class LokaleBookingComponent implements OnInit {
   recipeForm: FormGroup;
-  @Input() Booking: {personer: number, dato: number, start: number, slut: number};
+
+
+ @Input() Booking: {personer: number, dato: number, start: number, slut: number};
+
 
 
   constructor() { }

@@ -1,63 +1,13 @@
 <div class="container">
   <div class="row boxblue">
-    <div class="col-lg-12">
+    <div class="col-lg-3">
 
-      <div class="input-group date" data-provide="datepicker">
-        <label style="font-family: NeoSansW01, serif">Vælg Dato
-          <input type="date" class="form-control">
-        </label>
-
+      <mat-form-field>
+        <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
       </div>
-
-
-    </div>
-
-    <br>
-    <div class="col-lg-6">
-      <div class="form-group left" >
-        <label for="sel1" style="font-family: NeoSansW01, serif">Vælg lokale</label>
-        <select class="form-control" id="sel1">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-          <option>6</option>
-          <option>7</option>
-          <option>8</option>
-          <option>9</option>
-          <option>10</option>
-          <option>11</option>
-          <option>12</option>
-        </select>
-      </div>
-    </div>
-
-    <div class="col-lg-2">
-      <label for="ankomme" style="font-family: NeoSansW01, serif">Starttidspunkt:</label>
-      <select class="form-control" id="ankomme">
-        <option>08</option>
-        <option>9</option>
-        <option>10</option>
-        <option>11</option>
-        <option>12</option>
-        <option>13</option>
-        <option>14</option>
-        <option>15</option>
-        <option>16</option>
-      </select>
-    </div>
-
-    <div class="col-lg-2">
-      <label for="gå" style="font-family: NeoSansW01, serif">Antal timer:</label>
-      <select class="form-control" id="gå">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-      </select>
-    </div>
-    <br>
     <div class="col-lg-2">
       <label for="findknap"> </label>
       <button class="btn btn-primary" id="findknap">Find ledige lokaler</button>

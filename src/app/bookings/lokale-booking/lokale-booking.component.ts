@@ -3,6 +3,7 @@ import {FormControl, FormGroup} from '@angular/forms';
 import { MaterialModule } from './material.module';
 import {map} from 'rxjs/operators';
 import {HttpClient} from '@angular/common/http';
+import {BookingModel} from '../booking.model';
 
 
 
@@ -12,19 +13,20 @@ import {HttpClient} from '@angular/common/http';
   styleUrls: ['./lokale-booking.component.css']
 })
 export class LokaleBookingComponent implements OnInit {
-  recipeForm: FormGroup;
   url = 'http://ec2-3-20-238-191.us-east-2.compute.amazonaws.com:8082';
   hentetBookings = [];
   dato: Date = new Date();
+  datearray = [];
+  date;
 
- @Input() Booking: {personer: number, dato: number, start: number, slut: number};
+
+  public booking: BookingModel = new BookingModel();
 
 
 
   constructor(private http: HttpClient) { }
 
   ngOnInit(): void {
-    this.hentbooking();
   }
   showhide() {
     const click = document.getElementById('drop-content');
@@ -39,7 +41,7 @@ export class LokaleBookingComponent implements OnInit {
   }
   // Booking
   hentbooking() {
-  this.http.get<JSON>(this.url + '/bookings/' + this.dato.getDate() + '/' + this.dato.getMonth())
+  this.http.get<JSON>(this.url + '/bookings/' + this.datearray[1] + '/' + this.datearray[0])
     .pipe(map(responseData => {
       const postArray = [];
       for (const key in responseData) {
@@ -50,15 +52,24 @@ export class LokaleBookingComponent implements OnInit {
       return postArray;
     }))
     .subscribe(data => {
-      /*
+/*
       this.booking.id = data['id'],
       this.booking.roomId = data['roomId'],
       this.booking.timeblock = data['timeblock'],
-      this.booking.username = data['username']; });
-       */
+      this.booking.username = data['username'];
+
+ */
       console.log(data);
       this.hentetBookings = data;
-      /* tslint:disable:no-string-literal */
     });
+}
+updatedato() {
+    this.date = (document.getElementById('datepicker') as HTMLInputElement).value;
+    this.datearray = this.date.split('/');
+    console.log(this.datearray[0]);
+}
+refresh() {
+    this.updatedato();
+    this.hentbooking();
 }
 }

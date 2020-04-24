@@ -7,16 +7,18 @@
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
+
+
       </div>
     <div class="col-lg-2">
       <label for="findknap"> </label>
-      <button class="btn btn-primary" id="findknap">Find ledige lokaler</button>
+      <button class="btn btn-primary" id="findknap" (click)="refresh()">Find ledige lokaler</button>
     </div>
   </div>
 
   <p *ngIf="hentetBookings.length < 1">Ingen bookings</p>
   <ul *ngIf="hentetBookings.length >= 1">
-    <li *ngFor="let data of hentetBookings">Booking: {{data.id}} - Room: {{data.roomId}} - From: {{data.timeblock}}
+    <li *ngFor="let data of hentetBookings">Booking: {{data.id}} - Room: {{data.id}} - From: {{data.id}}
   </ul>
 
 <div class="row">

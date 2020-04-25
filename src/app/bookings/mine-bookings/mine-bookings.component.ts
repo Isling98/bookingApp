@@ -3,6 +3,7 @@ import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import {BookingModel} from '../booking.model';
 import {map} from 'rxjs/operators';
+import {httpheaderService} from '../../shared-services/httpheader.service';
 
 @Component({
   selector: 'app-mybookings',
@@ -15,7 +16,7 @@ export class MineBookingsComponent implements OnInit {
 
   hentetBookings = [];
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private httpHeader: httpheaderService) {}
 
   ngOnInit(): void {
     this.fetchData();
@@ -31,6 +32,7 @@ export class MineBookingsComponent implements OnInit {
       })
     };
   }
+  h
 
   public fetchData() {
     /* tslint:disable:no-string-literal */
@@ -56,6 +58,7 @@ export class MineBookingsComponent implements OnInit {
         this.hentetBookings = data;
         /* tslint:disable:no-string-literal */
       });
+
   }
 
   hentBooking() {

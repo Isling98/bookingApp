@@ -15,6 +15,7 @@ import { BrugeroplysningerComponent } from './brugeroplysninger/brugeroplysninge
 import { Gruppe20Component } from './gruppe20/gruppe20.component';
 import {TopbarUdenknapperComponent} from './topbar-udenknapper/topbar-udenknapper.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import { ConfirmDeleteComponent } from './confirm-delete/confirm-delete.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     LokaleoversigtComponent,
     BrugeroplysningerComponent,
     Gruppe20Component,
-    TopbarUdenknapperComponent
+    TopbarUdenknapperComponent,
+    ConfirmDeleteComponent
 
   ],
   imports: [

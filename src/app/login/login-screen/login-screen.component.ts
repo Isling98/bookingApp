@@ -28,8 +28,7 @@ export class LoginScreenComponent implements OnInit {
 
 
     //test med httpheader - gør ikke noget
-    this.httpheader.httpheaderset(brugernavn, adgangskode);
-    console.log(this.httpheader.httpheaderset(brugernavn, adgangskode));
+
 
 
 

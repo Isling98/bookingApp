@@ -18,6 +18,10 @@ export class LokaleBookingComponent implements OnInit {
   dato: Date = new Date();
   datearray = [];
   date;
+  timeblock = 1;
+
+  showTimeblocks: boolean = false;
+
 
 
   public booking: BookingModel = new BookingModel();
@@ -41,6 +45,8 @@ export class LokaleBookingComponent implements OnInit {
   }
   // Booking
   hentbooking() {
+    this.showTimeblocks = false;
+
   this.http.get<JSON>(this.url + '/bookings/' + this.datearray[1] + '/' + this.datearray[0])
     .pipe(map(responseData => {
       const postArray = [];
@@ -61,6 +67,10 @@ export class LokaleBookingComponent implements OnInit {
  */
       console.log(data);
       this.hentetBookings = data;
+      if (this.showTimeblocks===false){
+        this.showTimeblocks = true;
+      }
+
     });
 }
 updatedato() {

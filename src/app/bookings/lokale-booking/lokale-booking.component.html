@@ -21,53 +21,49 @@
     <li *ngFor="let data of hentetBookings">Booking: {{data.id}} - Room: {{data.id}} - From: {{data.id}}
   </ul>
 
-<div class="row">
-    <div class="col-lg-6">
-      <label for="tid">Vælg ankomst</label><br>
-      <div class="btn-group btn-group-lg" id="tid">
-        <button type="button" class="btn btn-danger" style="font-family: NeoSansW01, serif">08-10</button>
-        <button type="button" class="btn btn-success" style="font-family: NeoSansW01, serif">10-12</button>
-        <button type="button" class="btn btn-danger" style="font-family: NeoSansW01, serif">12-14</button>
-        <button type="button" class="btn btn-danger" style="font-family: NeoSansW01, serif">14-16</button>
-      </div>
-
-      <div class="btn-group btn-group-lg mt-1" id="tid2">
-        <button type="button" class="btn btn-danger" style="font-family: NeoSansW01, serif">16-18</button>
-        <button type="button" class="btn btn-danger" style="font-family: NeoSansW01, serif">18-20</button>
-        <button type="button" class="btn btn-success" style="font-family: NeoSansW01, serif">20-22</button>
-        <button type="button" class="btn btn-success" style="font-family: NeoSansW01, serif">22-24</button>
-
-
-<div class="row">
-  <div class="row"></div>
-    </div>
-      <label for="tid" >Vælg udtjekning</label><br>
-      <div class="btn-group btn-group-lg" id="tidud">
-        <button type="button" class="btn btn-primary" style="font-family: NeoSansW01, serif">08-10</button>
-        <button type="button" class="btn btn-primary" style="font-family: NeoSansW01, serif">10-12</button>
-        <button type="button" class="btn btn-primary" style="font-family: NeoSansW01, serif">12-14</button>
-        <button type="button" class="btn btn-primary" style="font-family: NeoSansW01, serif">14-16</button>
-      </div>
-
-      <div class="btn-group btn-group-lg mt-1" id="tidud2">
-        <button type="button" class="btn btn-primary" style="font-family: NeoSansW01, serif">16-18</button>
-        <button type="button" class="btn btn-primary" style="font-family: NeoSansW01, serif">18-20</button>
-        <button type="button" class="btn btn-primary" style="font-family: NeoSansW01, serif">20-22</button>
-        <button type="button" class="btn btn-primary" style="font-family: NeoSansW01, serif">22-24</button>
-      </div>
-      </div>
-  </div>
-  <div class="col-lg-6">
-    <img src="/assets/img/Ballerup-stue.jpg" alt="Stueetage"
-         style="max-width: 300px; max-height: 200px;  min-width: 200px; min-height: 300px;">
-  </div>
   <div class="row">
-    <div class="col-lg-6" >
+      <div class="col-lg-6">
+        <label *ngIf="showTimeblocks" for="tid">Vælg ankomst</label><br>
+        <div *ngIf="showTimeblocks" class="btn-group btn-group-lg" id="tid">
+
+          <button *ngIf="timeblock===1" type="button" class="btn btn-danger" style="font-family: NeoSansW01, serif">08-10</button>
+          <button *ngIf="timeblock===2" type="button" class="btn btn-success" style="font-family: NeoSansW01, serif">08-10</button>
+
+          <button type="button" class="btn btn-success" style="font-family: NeoSansW01, serif">10-12</button>
+          <button type="button" class="btn btn-success" style="font-family: NeoSansW01, serif">10-12</button>
+
+          <button type="button" class="btn btn-danger" style="font-family: NeoSansW01, serif">12-14</button>
+          <button type="button" class="btn btn-danger" style="font-family: NeoSansW01, serif">12-14</button>
+
+          <button type="button" class="btn btn-danger" style="font-family: NeoSansW01, serif">14-16</button>
+          <button type="button" class="btn btn-danger" style="font-family: NeoSansW01, serif">14-16</button>
+
+        </div>
+
+        <div *ngIf="showTimeblocks" class="btn-group btn-group-lg mt-1" id="tid2">
+          <button type="button" class="btn btn-danger" style="font-family: NeoSansW01, serif">16-18</button>
+          <button type="button" class="btn btn-danger" style="font-family: NeoSansW01, serif">16-18</button>
+
+          <button type="button" class="btn btn-danger" style="font-family: NeoSansW01, serif">18-20</button>
+          <button type="button" class="btn btn-danger" style="font-family: NeoSansW01, serif">18-20</button>
+
+          <button type="button" class="btn btn-success" style="font-family: NeoSansW01, serif">20-22</button>
+          <button type="button" class="btn btn-success" style="font-family: NeoSansW01, serif">20-22</button>
+
+          <button type="button" class="btn btn-success" style="font-family: NeoSansW01, serif">22-24</button>
+          <button type="button" class="btn btn-success" style="font-family: NeoSansW01, serif">22-24</button>
+
 
     </div>
-  </div>
-
-
-
+    </div>
+    <div class="col-lg-6">
+      <div class="col-lg-6">
+        <label for="stueetage" style="font-size: 25px">
+          Stueetage:
+        </label>
+        <img src="/assets/img/Ballerup-stue.jpg" alt="Stueetage"
+             style="max-width: 300px; max-height: 200px;  min-width: 200px; min-height: 300px; padding-top: 10px" id="stueetage">
+      </div>
+    </div>
   </div>
 </div>

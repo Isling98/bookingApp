@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import {BookingModel} from '../booking.model';
 import {map} from 'rxjs/operators';
 import {httpheaderService} from '../../shared-services/httpheader.service';
+import {DeletedialogService} from '../../shared-services/deletedialog.service';
 
 @Component({
   selector: 'app-mybookings',
@@ -16,7 +17,7 @@ export class MineBookingsComponent implements OnInit {
 
   hentetBookings = [];
 
-  constructor(private http: HttpClient, private httpHeader: httpheaderService) {}
+  constructor(private http: HttpClient, private httpHeader: httpheaderService, private deletedialogService: DeletedialogService) {}
 
   ngOnInit(): void {
     this.fetchData();
@@ -37,7 +38,7 @@ export class MineBookingsComponent implements OnInit {
   public fetchData() {
     /* tslint:disable:no-string-literal */
     // get booking for user 18
-    this.http.get<JSON>('http://ec2-3-20-238-191.us-east-2.compute.amazonaws.com:8082/bookings/user/18')
+    this.http.get<JSON>('http://ec2-3-20-238-191.us-east-2.compute.amazonaws.com:8082/bookings/user/25')
       .pipe(map(responseData => {
         const postArray = [];
         for (const key in responseData) {
@@ -64,6 +65,10 @@ export class MineBookingsComponent implements OnInit {
   hentBooking() {
     // tslint:disable-next-line:max-line-length
 
+  }
+
+  deleteBooking() {
+    this.deletedialogService.openDialog();
   }
 
   /**

@@ -16,54 +16,162 @@
     </div>
   </div>
 
-  <p *ngIf="hentetBookings.length < 1">Ingen bookings</p>
-  <ul *ngIf="hentetBookings.length >= 1">
-    <li *ngFor="let data of hentetBookings">Booking: {{data.id}} - Room: {{data.id}} - From: {{data.id}}
-  </ul>
 
-  <div class="row">
-      <div class="col-lg-6">
-        <label *ngIf="showTimeblocks" for="tid">Vælg ankomst</label><br>
-        <div *ngIf="showTimeblocks" class="btn-group btn-group-lg" id="tid">
 
-          <button *ngIf="timeblock===1" type="button" class="btn btn-danger" style="font-family: NeoSansW01, serif">08-10</button>
-          <button *ngIf="timeblock===2" type="button" class="btn btn-success" style="font-family: NeoSansW01, serif">08-10</button>
-
-          <button type="button" class="btn btn-success" style="font-family: NeoSansW01, serif">10-12</button>
-          <button type="button" class="btn btn-success" style="font-family: NeoSansW01, serif">10-12</button>
-
-          <button type="button" class="btn btn-danger" style="font-family: NeoSansW01, serif">12-14</button>
-          <button type="button" class="btn btn-danger" style="font-family: NeoSansW01, serif">12-14</button>
-
-          <button type="button" class="btn btn-danger" style="font-family: NeoSansW01, serif">14-16</button>
-          <button type="button" class="btn btn-danger" style="font-family: NeoSansW01, serif">14-16</button>
-
+  <!--!>
+  <div *ngIf="showTimeblocks" class="row" id="buttonrow">
+      <div class="col-lg-1" id="stueetagebtngroup">
+        <h3 style="font-family: NeoSansW01, serif; font-weight: bold; font-size: 20px">Stueetage</h3>
+        <div  class="btn-group-vertical">
+          <button class="btn btn-success" style="font-size: 25px">08-10</button>
+          <br>
+          <button class="btn btn-success" style="font-size: 25px" >10-12</button>
+          <br>
+          <button class="btn btn-success" style="font-size: 25px">12-14</button>
+          <br>
+          <button class="btn btn-success" style="font-size: 25px">14-16</button>
         </div>
+      </div>
+    <div class="col-lg-1" id="1sal">
+      <h3 style="font-family: NeoSansW01, serif; font-weight: bold; font-size: 20px">1. Sal</h3>
+      <div  class="btn-group-vertical">
 
-        <div *ngIf="showTimeblocks" class="btn-group btn-group-lg mt-1" id="tid2">
-          <button type="button" class="btn btn-danger" style="font-family: NeoSansW01, serif">16-18</button>
-          <button type="button" class="btn btn-danger" style="font-family: NeoSansW01, serif">16-18</button>
-
-          <button type="button" class="btn btn-danger" style="font-family: NeoSansW01, serif">18-20</button>
-          <button type="button" class="btn btn-danger" style="font-family: NeoSansW01, serif">18-20</button>
-
-          <button type="button" class="btn btn-success" style="font-family: NeoSansW01, serif">20-22</button>
-          <button type="button" class="btn btn-success" style="font-family: NeoSansW01, serif">20-22</button>
-
-          <button type="button" class="btn btn-success" style="font-family: NeoSansW01, serif">22-24</button>
-          <button type="button" class="btn btn-success" style="font-family: NeoSansW01, serif">22-24</button>
-
-
-    </div>
-    </div>
-    <div class="col-lg-6">
-      <div class="col-lg-6">
-        <label for="stueetage" style="font-size: 25px">
-          Stueetage:
-        </label>
-        <img src="/assets/img/Ballerup-stue.jpg" alt="Stueetage"
-             style="max-width: 300px; max-height: 200px;  min-width: 200px; min-height: 300px; padding-top: 10px" id="stueetage">
       </div>
     </div>
+
+    <div class="col-lg-1">
+      <h3 style="font-family: NeoSansW01, serif; font-weight: bold; font-size: 20px">2. Sal</h3>
+      <div class="btn-group-vertical">
+        <button class="btn btn-success" style="font-size: 25px">08-10</button>
+        <br>
+        <button class="btn btn-success" style="font-size: 25px">10-12</button>
+        <br>
+        <button class="btn btn-success" style="font-size: 25px">12-14</button>
+        <br>
+        <button class="btn btn-success" style="font-size: 25px">14-16</button>
+      </div>
+    </div>
+<div class="col-lg-1">
+  <br>
+</div>
+    <div class="col-lg-8">
+        <div class="col-lg-7">
+          <h3 style="font-family: NeoSansW01, serif; font-weight: bold; font-size: 20px">Din foreløbige booking</h3>
+        </div>
+
+
+        <div class="col-lg-1">
+        <button class="btn btn-primary" style="float: right">Book lokale</button>
+        </div>
+    </div>
   </div>
+<-->
+  <br>
+  <div  class="row">
+    <div class="col-lg-2">
+      <label for="stuelokale1" style="float: left; font-size: 20px; ">Stue lokale 1: </label>
+      <br>
+      <div class="btn-group-vertical" id="stuelokale1" style="min-width: 150px">
+        <button class="btn btn-success" style="font-size: 20px" id="0810">08-10</button>
+          &nbsp;
+        <button class="btn btn-success" style="font-size: 20px">10-12</button>
+        &nbsp;
+        <button class="btn btn-success" style="font-size: 20px">12-14</button>
+        &nbsp;
+        <button class="btn btn-success" style="font-size: 20px">14-16</button>
+      </div>
+    </div>
+    <div class="col-lg-2">
+      <label for="stuelokale2" style="float: left; font-size: 20px">Stue lokale 2: </label>
+      <br>
+      <div class="btn-group-vertical" id="stuelokale2" style="min-width: 150px">
+        <button class="btn btn-success" style="font-size: 20px">08-10</button>
+        &nbsp;
+        <button class="btn btn-success" style="font-size: 20px">10-12</button>
+        &nbsp;
+        <button class="btn btn-success" style="font-size: 20px">12-14</button>
+        &nbsp;
+        <button class="btn btn-success" style="font-size: 20px">14-16</button>
+      </div>
+    </div>
+
+    <div class="col-lg-2">
+      <label for="stuelokale1" style="float: left; font-size: 20px">Stue lokale 3: </label>
+      <br>
+      <div class="btn-group-vertical" id="stuelokale3" style="min-width: 150px">
+        <button class="btn btn-success" style="font-size: 20px">08-10</button>
+        &nbsp;
+        <button class="btn btn-success" style="font-size: 20px">10-12</button>
+        &nbsp;
+        <button class="btn btn-success" style="font-size: 20px">12-14</button>
+        &nbsp;
+        <button class="btn btn-success" style="font-size: 20px">14-16</button>
+      </div>
+
+    </div>
+    <div class="col-lg-2">
+      <label for="stuelokale1" style="float: left; font-size: 20px">Stue lokale 4: </label>
+      <div class="btn-group-vertical" id="stuelokale4" style="min-width: 150px">
+        <button class="btn btn-success" style="font-size: 20px">08-10</button>
+        &nbsp;
+        <button class="btn btn-success" style="font-size: 20px">10-12</button>
+        &nbsp;
+        <button class="btn btn-success" style="font-size: 20px">12-14</button>
+        &nbsp;
+        <button class="btn btn-success" style="font-size: 20px">14-16</button>
+      </div>
+    </div>
+    <div class="col-lg-2">
+      <label for="stuelokale1" style="float: left; font-size: 20px">Stue lokale 5: </label>
+      <br>
+      <div class="btn-group-vertical" id="stuelokale5" style="min-width: 150px">
+        <button class="btn btn-success" style="font-size: 20px">08-10</button>
+        &nbsp;
+        <button class="btn btn-success" style="font-size: 20px">10-12</button>
+        &nbsp;
+        <button class="btn btn-success" style="font-size: 20px">12-14</button>
+        &nbsp;
+        <button class="btn btn-success" style="font-size: 20px">14-16</button>
+
+      </div>
+    </div>
+    <div class="col-lg-2">
+      <label for="stuelokale1" style="float: left; font-size: 20px">Stue lokale 6: </label>
+      <div class="btn-group-vertical" id="stuelokale6" style="min-width: 150px;">
+        <button class="btn btn-success" style="font-size: 20px; border-radius: 10px">08-10</button>
+        &nbsp;
+        <button class="btn btn-success" style="font-size: 20px; border-radius: 10px">10-12</button>
+        &nbsp;
+        <button class="btn btn-success" style="font-size: 20px; border-radius: 10px">12-14</button>
+        &nbsp;
+        <button class="btn btn-success" style="font-size: 20px; border-radius: 10px">14-16</button>
+      </div>
+    </div>
+
+  </div> <!--!> Stueetage <-->
+  <br>
+  <div   class="row">
+    <div class="col-lg-4">
+
+    </div>
+  </div> <!--!> Stueetage <-->
+
+
+
+
+
+
+
+  <br>
+  <br>
+
+
+<br>
+
+
+  <p *ngIf="hentetBookings.length < 1">Ingen bookings</p>
+  <ul *ngIf="hentetBookings.length >= 1">
+    <li *ngFor="let data of hentetBookings">Booking: {{data.id}} - Room: {{data.roomId}} - From: {{data.timeblock}}
+  </ul>
+
 </div>

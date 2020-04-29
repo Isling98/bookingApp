@@ -37,7 +37,7 @@ export class MineBookingsComponent implements OnInit {
   public fetchData() {
     /* tslint:disable:no-string-literal */
     // get booking for user 18
-    this.http.get<JSON>('http://ec2-3-20-238-191.us-east-2.compute.amazonaws.com:8082/bookings/user/18')
+    this.http.get<JSON>('http://ec2-3-20-238-191.us-east-2.compute.amazonaws.com:8082/bookings/user/25')
       .pipe(map(responseData => {
         const postArray = [];
         for (const key in responseData) {

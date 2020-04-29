@@ -1,10 +1,7 @@
-import {Component, Input, NgModule, OnInit} from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
-import { MaterialModule } from './material.module';
+import {Component, OnInit} from '@angular/core';
 import {map} from 'rxjs/operators';
 import {HttpClient} from '@angular/common/http';
 import {BookingModel} from '../booking.model';
-
 
 
 @Component({
@@ -18,7 +15,10 @@ export class LokaleBookingComponent implements OnInit {
   dato: Date = new Date();
   datearray = [];
   date;
-  timeblock = 1;
+  timeblockboolean = 2;
+  timeblockarray = [];
+  showstueetage: boolean = false;
+  shows1sal: boolean = false;
 
   showTimeblocks: boolean = false;
 
@@ -32,17 +32,8 @@ export class LokaleBookingComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  showhide() {
-    const click = document.getElementById('drop-content');
-    if (click.style.display === 'none') {
-      click.style.display = 'block';
-    } else {
-      click.style.display = 'none';
-    }
-  }
-  highlightTidspunkt() {
-    const click = document.getElementById('');
-  }
+
+
   // Booking
   hentbooking() {
     this.showTimeblocks = false;
@@ -58,18 +49,28 @@ export class LokaleBookingComponent implements OnInit {
       return postArray;
     }))
     .subscribe(data => {
-/*
-      this.booking.id = data['id'],
-      this.booking.roomId = data['roomId'],
-      this.booking.timeblock = data['timeblock'],
-      this.booking.username = data['username'];
 
- */
-      console.log(data);
+    this.timeblockarray.length = data.length;
+      for (let i = 0; i < this.timeblockarray.length ; i++) {
+        this.timeblockarray[i] = new BookingModel();
+        this.timeblockarray[i]['timeblock'] = data[i]['timeblock'];
+        this.timeblockarray[i]['username'] = data[i]['username'];
+        this.timeblockarray[i]['id'] = data[i]['id'];
+      }
+
+
+      this.booking.id = data[0]['id'];
+      this.booking.roomId = data[0]['roomId'];
+      this.booking.timeblock = data[0]['timeblock'];
+      this.booking.username = data[0]['username'];
+
+
       this.hentetBookings = data;
       if (this.showTimeblocks===false){
         this.showTimeblocks = true;
       }
+      console.log(data);
+      console.log(this.timeblockarray);
 
     });
 }
@@ -78,8 +79,16 @@ updatedato() {
     this.datearray = this.date.split('/');
     console.log(this.datearray[0]);
 }
+
+
 refresh() {
     this.updatedato();
     this.hentbooking();
+}
+showstueetagemethod() {
+    this.showstueetage = !this.showstueetage;
+}
+show1salmehod(){
+    this.shows1sal = !this.shows1sal;
 }
 }

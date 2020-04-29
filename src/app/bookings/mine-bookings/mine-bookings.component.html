@@ -4,7 +4,7 @@
     <input type="number" value="{{booking.userId}}"><button (click)="fetchData()">Opdater booking</button>
     <p *ngIf="hentetBookings.length < 1">Ingen bookings</p>
     <ul *ngIf="hentetBookings.length >= 1">
-      <li *ngFor="let data of hentetBookings">Booking: {{data.id}} - Room: {{data.roomId}} - From: {{data.timeblock}}  <button class="btn-danger" style="font-size: small;color: black">Delete this bookingTemplate</button></li>
+      <li *ngFor="let data of hentetBookings">Booking: {{data.id}} - Room: {{data.roomId}} - From: {{data.timeblock}} <button class="btn-danger" style="font-size: small;color: black">Delete this bookingTemplate</button></li>
 
       <!--!>
       <li> Booking: {{booking.id}}.  Room {{booking.roomId}}.  from {{booking.timeblock}}  <button class="btn-danger" style="font-size: small;color: black">Delete this bookingTemplate</button></li>
@@ -13,6 +13,7 @@
       <li> Room 4 from 16-18 <button class="btn-danger" style="font-size: small;color: black">Delete this bookingTemplate</button> </li>
       <li> Room 4 from 16-18 <button class="btn-danger" style="font-size: small;color: black">Delete this bookingTemplate</button> </li>
     <-->
+
     </ul>
   </div>
 </div>

@@ -10,7 +10,7 @@ export class DeletedialogService {
   constructor(private dialog: MatDialog) { }
 
   openDialog() {
-    this.dialog.open(ConfirmDeleteComponent, {width: '500px', disableClose: true});
+    return this.dialog.open(ConfirmDeleteComponent, {width: '500px', disableClose: true});
   }
 
 

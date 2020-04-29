@@ -33,7 +33,6 @@ export class MineBookingsComponent implements OnInit {
       })
     };
   }
-  h
 
   public fetchData() {
     /* tslint:disable:no-string-literal */
@@ -68,7 +67,14 @@ export class MineBookingsComponent implements OnInit {
   }
 
   deleteBooking() {
-    this.deletedialogService.openDialog();
+    this.deletedialogService.openDialog()
+      .afterClosed().subscribe(response => {
+        console.log(response);
+      /**
+       * Her skal laves et kald med if(responese === true) så skal deleteBookingDatabase (måske andet navn) kaldes, hvor der slettes
+       * booking fra databasen vha. http delete.
+       */
+    });
   }
 
   /**

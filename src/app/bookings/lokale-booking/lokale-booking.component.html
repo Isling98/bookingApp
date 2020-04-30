@@ -12,8 +12,26 @@
       </div>
     <div class="col-lg-2">
       <label for="findknap"> </label>
-      <button class="btn btn-primary" id="findknap" (click)="refresh()">Find ledige lokaler</button>
+      <button class="btn btn-primary" id="findknap" style="font-family: NeoSansW01, serif" (click)="refresh()">Find ledige lokaler</button>
     </div>
+    <div *ngIf="showforeloebige" class="col-lg-7" id="foreloebige">
+      <h1>Din foreløbige booking:</h1>
+      <p style="font-size: 20px; font-family: NeoSansW01, serif">
+        Dato: {{newBooking.day}}
+        / {{newBooking.month | number}}
+        - {{newBooking.year}}
+        <br>
+        <br>
+        Lokale: {{newBooking.roomId}}
+        Tidsrum: {{amountoftimeblocks[0]}} - {{amountoftimeblocks[1]}}
+
+      </p>
+      <button class="btn btn-primary" (click)="opretBooking()" style="float: right; font-family: NeoSansW01, serif">Opret Booking</button>
+      <br>
+      <button *ngIf="showforeloebige" class="btn btn-primary" id="resettidsrum" style="font-family: NeoSansW01, serif" (click)="resettidsrum()">Reset tidsrum</button>
+    </div>
+
+
   </div>
 
 
@@ -138,13 +156,13 @@
     <div class="col-lg-2">
       <label for=6 style="float: left; font-size: 20px">Stue lokale 6: </label>
       <div class="btn-group-vertical" id=6 style="min-width: 150px;">
-        <button class="btn btn-success" style="font-size: 20px; border-radius: 10px" (click)="addTimeblockandroomId(810, 6)">08-10</button>
+        <button class="btn btn-success" style="font-size: 20px;" (click)="addTimeblockandroomId(810, 6)">08-10</button>
         &nbsp;
-        <button class="btn btn-success" style="font-size: 20px; border-radius: 10px" (click)="addTimeblockandroomId(1012, 6)">10-12</button>
+        <button class="btn btn-success" style="font-size: 20px;" (click)="addTimeblockandroomId(1012, 6)">10-12</button>
         &nbsp;
-        <button class="btn btn-success" style="font-size: 20px; border-radius: 10px" (click)="addTimeblockandroomId(1214, 6)">12-14</button>
+        <button class="btn btn-success" style="font-size: 20px;" (click)="addTimeblockandroomId(1214, 6)">12-14</button>
         &nbsp;
-        <button class="btn btn-success" style="font-size: 20px; border-radius: 10px" (click)="addTimeblockandroomId(1416, 6)">14-16</button>
+        <button class="btn btn-success" style="font-size: 20px;" (click)="addTimeblockandroomId(1416, 6)">14-16</button>
       </div>
     </div>
 
@@ -155,7 +173,7 @@
 
 
 
-<button class="btn btn-primary" (click)="opretBooking()">Opret Booking</button>
+
 
   <br>
   <br>

@@ -18,8 +18,14 @@ export class LokaleBookingComponent implements OnInit {
   date;
   timeblockboolean = 2;
   timeblockarray = [];
+  amountoftimeblocks = [];
+
   showstueetage: boolean = false;
   shows1sal: boolean = false;
+  showforeloebige: boolean = false;
+
+
+  testarray = [];
 
   newBooking: BookingModel = new BookingModel();
 
@@ -35,6 +41,7 @@ export class LokaleBookingComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
 
 
   // Booking
@@ -80,6 +87,10 @@ export class LokaleBookingComponent implements OnInit {
 updatedato() {
     this.date = (document.getElementById('datepicker') as HTMLInputElement).value;
     this.datearray = this.date.split('/');
+    this.newBooking.day = this.datearray[1] as number;
+    this.newBooking.month = this.datearray[0] as number;
+    this.newBooking.year = this.datearray[2] as number;
+    this.showforeloebige = true;
 }
 
 
@@ -98,8 +109,8 @@ show1salmehod(){
 opretBooking() {
   this.updatedato();
 
-  this.newBooking.day = this.datearray[0];
-  this.newBooking.month = this.datearray[1];
+  this.newBooking.day = this.datearray[1];
+  this.newBooking.month = this.datearray[0];
   this.newBooking.year = this.datearray[2];
   //this.newBooking.roomId = roomdId;
   //this.newBooking.timeblock = timeblock;
@@ -113,7 +124,23 @@ opretBooking() {
 }
 addTimeblockandroomId(timeblock: number, roomId: number) {
     this.newBooking.timeblock = timeblock;
+    if (this.amountoftimeblocks.length == 2){
+      this.amountoftimeblocks.pop();
+      this.amountoftimeblocks.push(this.newBooking.timeblock);
+    }else {
+      this.amountoftimeblocks.push(this.newBooking.timeblock);
+    }
+
+
     this.newBooking.roomId = roomId;
+    this.testarray[0] = this.newBooking;
+
+
   console.log(this.newBooking);
+  console.log(this.amountoftimeblocks);
+}
+resettidsrum(){
+    this.amountoftimeblocks.pop();
+    this.amountoftimeblocks.pop();
 }
 }

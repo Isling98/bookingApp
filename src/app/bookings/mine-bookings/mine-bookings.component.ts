@@ -32,7 +32,7 @@ export class MineBookingsComponent implements OnInit {
       })
     };
   }
-  h
+
 
   public fetchData() {
     /* tslint:disable:no-string-literal */

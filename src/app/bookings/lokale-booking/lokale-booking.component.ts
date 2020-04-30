@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {map} from 'rxjs/operators';
 import {HttpClient} from '@angular/common/http';
 import {BookingModel} from '../booking.model';
+import {pipe} from 'rxjs';
 
 
 @Component({
@@ -10,7 +11,7 @@ import {BookingModel} from '../booking.model';
   styleUrls: ['./lokale-booking.component.css']
 })
 export class LokaleBookingComponent implements OnInit {
-  url = 'http://ec2-3-20-238-191.us-east-2.compute.amazonaws.com:8082';
+  url = 'http://ec2-3-21-232-61.us-east-2.compute.amazonaws.com:8080';
   hentetBookings = [];
   dato: Date = new Date();
   datearray = [];
@@ -19,6 +20,8 @@ export class LokaleBookingComponent implements OnInit {
   timeblockarray = [];
   showstueetage: boolean = false;
   shows1sal: boolean = false;
+
+  newBooking: BookingModel = new BookingModel();
 
   showTimeblocks: boolean = false;
 
@@ -38,7 +41,7 @@ export class LokaleBookingComponent implements OnInit {
   hentbooking() {
     this.showTimeblocks = false;
 
-  this.http.get<JSON>(this.url + '/bookings/' + this.datearray[1] + '/' + this.datearray[0])
+  this.http.get<JSON>(this.url + '/bookings/findByDate/' + this.datearray[1] + '/' + this.datearray[0] + '/' + this.datearray[2])
     .pipe(map(responseData => {
       const postArray = [];
       for (const key in responseData) {
@@ -77,7 +80,6 @@ export class LokaleBookingComponent implements OnInit {
 updatedato() {
     this.date = (document.getElementById('datepicker') as HTMLInputElement).value;
     this.datearray = this.date.split('/');
-    console.log(this.datearray[0]);
 }
 
 
@@ -90,5 +92,28 @@ showstueetagemethod() {
 }
 show1salmehod(){
     this.shows1sal = !this.shows1sal;
+}
+
+
+opretBooking() {
+  this.updatedato();
+
+  this.newBooking.day = this.datearray[0];
+  this.newBooking.month = this.datearray[1];
+  this.newBooking.year = this.datearray[2];
+  //this.newBooking.roomId = roomdId;
+  //this.newBooking.timeblock = timeblock;
+  this.newBooking.userId = 19;
+  this.newBooking.username = "s180000";
+  console.log(this.newBooking);
+
+  this.http.post('http://ec2-3-21-232-61.us-east-2.compute.amazonaws.com:8080/bookings', this.newBooking).subscribe(responseData =>{
+    console.log(responseData);
+  });
+}
+addTimeblockandroomId(timeblock: number, roomId: number) {
+    this.newBooking.timeblock = timeblock;
+    this.newBooking.roomId = roomId;
+  console.log(this.newBooking);
 }
 }

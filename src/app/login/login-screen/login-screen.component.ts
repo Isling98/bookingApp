@@ -16,32 +16,24 @@ export class LoginScreenComponent implements OnInit {
 
   ngOnInit(): void {
     console.log(this.loginService.getUserLoggedIn());
-  }
+}
 
   onSubmit(e) {
     console.log(e);
     const brugernavn = e.target.elements[0].value;
     const adgangskode = e.target.elements[1].value;
-    console.log(brugernavn, adgangskode);
 
+// login api metode
 
-
-
-
-
-
-
-    if (brugernavn === 'test' && adgangskode === 'test') {
       this.loginService.setUserLoggedIn(true);
+    console.log(this.loginService.getUserLoggedIn());
+      this.loginService.headerString=brugernavn+':'+adgangskode;
 
-      console.log(this.loginService.getUserLoggedIn());
       this.router.navigate(['/ny-booking'], {relativeTo: this.route});
-    } else {
-      this.loginService.setUserLoggedIn(false);
-      console.log(this.loginService.getUserLoggedIn());
-      this.router.navigate(['/forkert-adgangskode'], {relativeTo: this.route});
 
+   /*   this.loginService.setUserLoggedIn(false);
+      console.log(this.loginService.getUserLoggedIn());
+      this.router.navigate(['/forkert-adgangskode'], {relativeTo: this.route});*/
 
     }
-  }
 }

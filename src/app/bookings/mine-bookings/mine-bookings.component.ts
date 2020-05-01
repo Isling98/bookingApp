@@ -5,6 +5,7 @@ import {BookingModel} from '../booking.model';
 import {map} from 'rxjs/operators';
 import {httpheaderService} from '../../shared-services/httpheader.service';
 import {DeletedialogService} from '../../shared-services/deletedialog.service';
+import {MatTableDataSource} from '@angular/material/table';
 
 @Component({
   selector: 'app-mybookings',
@@ -12,10 +13,11 @@ import {DeletedialogService} from '../../shared-services/deletedialog.service';
   styleUrls: ['./mine-bookings.component.css']
 })
 export class MineBookingsComponent implements OnInit {
-
   public booking: BookingModel = new BookingModel();
 
   hentetBookings = [];
+  listData: MatTableDataSource<any>;
+  displayedColumns: string[] = ['id', 'roomId', 'timeblock', 'month', 'day', 'delete'];
 
   constructor(private http: HttpClient, private httpHeader: httpheaderService, private deletedialogService: DeletedialogService) {}
 
@@ -24,7 +26,6 @@ export class MineBookingsComponent implements OnInit {
 
     const username = 's180077';
     const password = '123';
-
     const authorizationData = 'Basic ' + btoa(username + ':' + password);
 
     const headerOptions = {
@@ -46,28 +47,17 @@ export class MineBookingsComponent implements OnInit {
         return postArray;
       }))
       .subscribe(data => {
-        /*
-        this.booking.id = data['id'],
-        this.booking.roomId = data['roomId'],
-        this.booking.timeblock = data['timeblock'],
-        this.booking.username = data['username']; });
-         */
         console.log(data);
         this.hentetBookings = data;
+        this.listData = new MatTableDataSource(this.hentetBookings);
       });
-
-  }
-
-  hentBooking() {
-    // tslint:disable-next-line:max-line-length
-
   }
 
   confirmDeleteBooking() {
     this.deletedialogService.openDialog()
       .afterClosed().subscribe(response => {
         console.log(response);
-        console.log(this.hentetBookings)
+        console.log(this.hentetBookings);
       /**
        * Her skal laves et kald med if(responese === true) så skal deleteBookingDatabase (måske andet navn) kaldes, hvor der slettes
        * booking fra databasen vha. http delete. else console.log(response)
@@ -76,7 +66,6 @@ export class MineBookingsComponent implements OnInit {
   }
 
   deleteBooking() {
-
     /**
      * Har svært ved at tilgå de enkelte elementer at listen af bookings, som bliver lavet inde i mine-bookings-html.
      * Hvis det overhovedet kan lade sig gøre, så skal jeg have fat i en måde, hvor man kan få fat i hvert element som bliver lavet
@@ -85,18 +74,11 @@ export class MineBookingsComponent implements OnInit {
      * PRØV:
      * Benyt samme metode som mads har brugt til at tilgå et element
      */
-
   }
 
   /**
    * Her kunne laves en delete-metode, som fjerne ud fra bookingens id.
    * Metoden skal kun kaldes gennem knappen delete fra html, og derfra evt. måske en pop-op for at tjekke at brugeren er sikker.
    * Tjek udemy kurses for delete-metode (eller nettet)
-   *
-   *
-   * ALTERNATIV:
-   * Lav kun 1 enkelt knap til delete, hvor brugeren selv skriver det id som de ønsker at slette, så ville popup stadig kunne
-   * benyttes, men blot hvor der indtastes et bookingId, så det er lettere at lave http.delete metoden.
    */
-
 }

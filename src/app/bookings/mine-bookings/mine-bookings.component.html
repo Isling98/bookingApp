@@ -1,6 +1,44 @@
 <div class="container">
 <div class="col-xs-12">
   <div class="row boxblue">
+    <mat-table [dataSource]="listData">
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+      <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef>Booking id</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.id}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="roomId">
+        <mat-header-cell *matHeaderCellDef>Room id</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.roomId}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="timeblock">
+        <mat-header-cell *matHeaderCellDef>Timeblock</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.timeblock}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="month">
+        <mat-header-cell *matHeaderCellDef>Month</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.month}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="day">
+        <mat-header-cell *matHeaderCellDef>Day</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.day}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="delete">
+        <mat-header-cell *matHeaderCellDef>Delete</mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <button mat-flat-button id="delete-buttom" color="red" (click)="confirmDeleteBooking()">Delete this booking</button>
+        </mat-cell>
+      </ng-container>
+
+    </mat-table>
+    <!--!>
     <input type="number" value="{{booking.userId}}"><button (click)="fetchData()">Opdater booking</button>
     <p *ngIf="hentetBookings.length < 1">Ingen bookings</p>
     <ul *ngIf="hentetBookings.length >= 1">
@@ -9,6 +47,7 @@
         <button mat-flat-button id="delete-buttom" color="red" (click)="confirmDeleteBooking()">Delete this booking</button> <br> <br>
       </li>
     </ul>
+    <-->
   </div>
 </div>
 </div>

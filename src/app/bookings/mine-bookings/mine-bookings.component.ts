@@ -35,9 +35,7 @@ export class MineBookingsComponent implements OnInit {
   }
 
   public fetchData() {
-    /* tslint:disable:no-string-literal */
-    // get booking for user 18
-    this.http.get<JSON>('http://ec2-3-20-238-191.us-east-2.compute.amazonaws.com:8082/bookings/user/25')
+    this.http.get<JSON>('http://ec2-3-21-232-61.us-east-2.compute.amazonaws.com:8080/bookings/user/19')
       .pipe(map(responseData => {
         const postArray = [];
         for (const key in responseData) {
@@ -56,7 +54,6 @@ export class MineBookingsComponent implements OnInit {
          */
         console.log(data);
         this.hentetBookings = data;
-        /* tslint:disable:no-string-literal */
       });
 
   }
@@ -66,21 +63,40 @@ export class MineBookingsComponent implements OnInit {
 
   }
 
-  deleteBooking() {
+  confirmDeleteBooking() {
     this.deletedialogService.openDialog()
       .afterClosed().subscribe(response => {
         console.log(response);
+        console.log(this.hentetBookings)
       /**
        * Her skal laves et kald med if(responese === true) så skal deleteBookingDatabase (måske andet navn) kaldes, hvor der slettes
-       * booking fra databasen vha. http delete.
+       * booking fra databasen vha. http delete. else console.log(response)
        */
     });
+  }
+
+  deleteBooking() {
+
+    /**
+     * Har svært ved at tilgå de enkelte elementer at listen af bookings, som bliver lavet inde i mine-bookings-html.
+     * Hvis det overhovedet kan lade sig gøre, så skal jeg have fat i en måde, hvor man kan få fat i hvert element som bliver lavet
+     * ud fra: ngFor-loopet før jeg kan lave en delete metode vha. knapper.
+     *
+     * PRØV:
+     * Benyt samme metode som mads har brugt til at tilgå et element
+     */
+
   }
 
   /**
    * Her kunne laves en delete-metode, som fjerne ud fra bookingens id.
    * Metoden skal kun kaldes gennem knappen delete fra html, og derfra evt. måske en pop-op for at tjekke at brugeren er sikker.
    * Tjek udemy kurses for delete-metode (eller nettet)
+   *
+   *
+   * ALTERNATIV:
+   * Lav kun 1 enkelt knap til delete, hvor brugeren selv skriver det id som de ønsker at slette, så ville popup stadig kunne
+   * benyttes, men blot hvor der indtastes et bookingId, så det er lettere at lave http.delete metoden.
    */
 
 }

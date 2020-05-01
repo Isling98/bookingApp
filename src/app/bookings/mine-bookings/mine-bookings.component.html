@@ -6,7 +6,7 @@
     <ul *ngIf="hentetBookings.length >= 1">
       <li *ngFor="let data of hentetBookings">Booking: {{data.id}} - Room: {{data.roomId}} - From: {{data.timeblock}}
         &nbsp;&nbsp;&nbsp; - &nbsp;&nbsp;&nbsp;
-        <button mat-flat-button id="delete-buttom" color="red" (click)="deleteBooking()">Delete this booking</button> <br> <br>
+        <button mat-flat-button id="delete-buttom" color="red" (click)="confirmDeleteBooking()">Delete this booking</button> <br> <br>
       </li>
     </ul>
   </div>

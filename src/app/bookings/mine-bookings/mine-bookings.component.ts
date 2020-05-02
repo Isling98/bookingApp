@@ -11,7 +11,7 @@ import {LoginService} from '../../shared-services/login.service';
   styleUrls: ['./mine-bookings.component.css']
 })
 export class MineBookingsComponent implements OnInit {
-  public isUserLoggedIn = this.loginService.getUserLoggedIn();
+  public isUserLoggedIn = this.loginService.getisUserLoggedIn;
 
   public booking: BookingModel = new BookingModel();
 

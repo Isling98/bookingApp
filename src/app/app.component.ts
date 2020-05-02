@@ -9,7 +9,6 @@ import {LoginService} from './shared-services/login.service';
 })
 export class AppComponent {
   title = 'bookingApp';
-  isUserLoggedIn = this.loginService.getUserLoggedIn();
 
   constructor(public router: Router,
               public loginService: LoginService) {

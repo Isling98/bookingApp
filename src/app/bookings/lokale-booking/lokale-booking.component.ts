@@ -8,7 +8,7 @@ import {LoginService} from '../../shared-services/login.service';
   styleUrls: ['./lokale-booking.component.css']
 })
 export class LokaleBookingComponent implements OnInit {
-  public isUserLoggedIn = this.loginService.getUserLoggedIn();
+  public isUserLoggedIn = this.loginService.getisUserLoggedIn;
 
   recipeForm: FormGroup;
   @Input() newBooking: {personer: number, dato: number, start: number, slut: number};

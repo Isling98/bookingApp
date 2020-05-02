@@ -16,9 +16,8 @@ import {root} from 'rxjs/internal-compatibility';
 
 export class BrugeroplysningerComponent implements OnInit {
 
-  // Dummy data - skal selvfølgelig hente det rigtige senere..
   public bruger: Bruger = this.brugerService.getBruger();
-  public isUserLoggedIn = this.loginService.getUserLoggedIn();
+  public isUserLoggedIn = this.loginService.getisUserLoggedIn;
 
   // Den nye kan findes her: http://ec2-3-20-238-191.us-east-2.compute.amazonaws.com:8082/
   // hvor i kan logge ind med username s180077 pass 123
@@ -30,11 +29,12 @@ export class BrugeroplysningerComponent implements OnInit {
   ngOnInit() {
 
 
-    if (this.isUserLoggedIn) {
-
-      console.log(this.loginService.headerString);
+    if (this.loginService.getisUserLoggedIn) {
       // Test med opdeling af data:
-    this.http.get<JSON>('http://ec2-3-21-232-61.us-east-2.compute.amazonaws.com:8081/users/19',this.loginService.httpOptions).subscribe
+    this.http.get<JSON>('http://localhost:8081/users/22', { headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+        Authorization: 'Basic ' + btoa(this.loginService.httpString)
+      })}).subscribe
       (data => {this.bruger.id = data['id'], this.bruger.username = data['username'],
         this.bruger.firstName = data['firstName'], this.bruger.lastName = data['lastName'],
         this.bruger.bookingList = data['bookingList']; });

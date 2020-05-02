@@ -63,8 +63,7 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "bookingApp:build",
-            "proxyConfig": "src/proxy.conf.json"
+            "browserTarget": "bookingApp:build"
           },
           "configurations": {
             "production": {

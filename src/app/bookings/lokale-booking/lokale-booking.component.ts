@@ -20,127 +20,262 @@ export class LokaleBookingComponent implements OnInit {
   timeblockarray = [];
   amountoftimeblocks = [];
 
+
+//booleans
   showstueetage: boolean = false;
   shows1sal: boolean = false;
   showforeloebige: boolean = false;
 
+  //boolean for rumledighed
+  //Stue lokale 1
+  stue108til12: boolean = true;
+  stue112til16: boolean = true;
+  stue116til20: boolean = true;
+  stue120til24: boolean = true;
 
-  testarray = [];
+  //Stue lokale 2
+  stue208til12: boolean = true;
+  stue212til16: boolean = true;
+  stue216til20: boolean = true;
+  stue220til24: boolean = true;
+
+  //stue lokale 3
+  stue308til12: boolean = true;
+  stue312til16: boolean = true;
+  stue316til20: boolean = true;
+  stue320til24: boolean = true;
+
+  //stue lokale 4
+  stue408til12: boolean = true;
+  stue412til16: boolean = true;
+  stue416til20: boolean = true;
+  stue420til24: boolean = true;
+
+  //stue lokale 5
+  stue508til12: boolean = true;
+  stue512til16: boolean = true;
+  stue516til20: boolean = true;
+  stue520til24: boolean = true;
+
+  //stue lokale 6
+  stue608til12: boolean = true;
+  stue612til16: boolean = true;
+  stue616til20: boolean = true;
+  stue620til24: boolean = true;
+
+  //lokalearray
+  lokalearray = [0, 1, 2, 3, 4, 5, 6];
+
+
+
+
 
   newBooking: BookingModel = new BookingModel();
 
-  showTimeblocks: boolean = false;
-
+  showTimeblocks: boolean = true;
 
 
   public booking: BookingModel = new BookingModel();
 
 
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+  }
 
   ngOnInit(): void {
   }
 
 
-
   // Booking
   hentbooking() {
     this.showTimeblocks = false;
+    this.clearbooleans();
 
-  this.http.get<JSON>(this.url + '/bookings/findByDate/' + this.datearray[1] + '/' + this.datearray[0] + '/' + this.datearray[2])
-    .pipe(map(responseData => {
-      const postArray = [];
-      for (const key in responseData) {
-        if (responseData.hasOwnProperty(key)) {
-          postArray.push({...responseData[key]});
+    this.http.get<JSON>(this.url + '/bookings/findByDate/' + this.datearray[1] + '/' + this.datearray[0] + '/' + this.datearray[2])
+      .pipe(map(responseData => {
+        const postArray = [];
+        for (const key in responseData) {
+          if (responseData.hasOwnProperty(key)) {
+            postArray.push({...responseData[key]});
+          }
         }
-      }
-      return postArray;
-    }))
-    .subscribe(data => {
-
-    this.timeblockarray.length = data.length;
-      for (let i = 0; i < this.timeblockarray.length ; i++) {
-        this.timeblockarray[i] = new BookingModel();
-        this.timeblockarray[i]['timeblock'] = data[i]['timeblock'];
-        this.timeblockarray[i]['username'] = data[i]['username'];
-        this.timeblockarray[i]['id'] = data[i]['id'];
-      }
+        return postArray;
+      }))
+      .subscribe(data => {
 
 
-      this.booking.id = data[0]['id'];
-      this.booking.roomId = data[0]['roomId'];
-      this.booking.timeblock = data[0]['timeblock'];
-      this.booking.username = data[0]['username'];
+
+        this.timeblockarray.length = data.length;
+        for (let i = 0; i < this.timeblockarray.length; i++) {
+          this.timeblockarray[i] = new BookingModel();
+          this.timeblockarray[i]['timeblock'] = data[i]['timeblock'];
+          this.timeblockarray[i]['roomId'] = data[i]['roomId'];
+          if (this.timeblockarray[i]['roomId'] == 1) {
+          if (this.timeblockarray[i]['timeblock'] == 1) {
+            this.stue108til12 = false;
+            console.log(this.stue108til12);
+          } else if (this.timeblockarray[i]['timeblock'] == 2) {
+            this.stue112til16 = false;
+            console.log(this.stue112til16);
+          } else if (this.timeblockarray[i]['timeblock'] == 3) {
+            this.stue116til20 = false;
+            console.log(this.stue116til20);
+          } else if (this.timeblockarray[i]['timeblock'] == 4) {
+            this.stue120til24 = false;
+            console.log(this.stue120til24);
+          }
+        }
+          if (this.timeblockarray[i]['roomId'] == 2) {
+            if (this.timeblockarray[i]['timeblock'] == 1) {
+              this.stue208til12 = false;
+            } else if (this.timeblockarray[i]['timeblock'] == 2) {
+              this.stue212til16 = false;
+            } else if (this.timeblockarray[i]['timeblock'] == 3) {
+              this.stue216til20 = !this.stue216til20;
+            } else if (this.timeblockarray[i]['timeblock'] == 4) {
+              this.stue220til24 = false;
+            }
+          }
+          if (this.timeblockarray[i]['roomId'] == 3){
+            if (this.timeblockarray[i]['timeblock'] == 1) {
+              this.stue308til12 = false;
+            } else if (this.timeblockarray[i]['timeblock'] == 2) {
+              this.stue312til16 = false;
+            } else if (this.timeblockarray[i]['timeblock'] == 3) {
+              this.stue316til20 = !this.stue216til20;
+            } else if (this.timeblockarray[i]['timeblock'] == 4) {
+              this.stue320til24 = false;
+            }
+          }
+          if (this.timeblockarray[i]['roomId'] == 4) {
+            if (this.timeblockarray[i]['timeblock'] == 1) {
+              this.stue408til12 = false;
+            } else if (this.timeblockarray[i]['timeblock'] == 2) {
+              this.stue412til16 = false;
+            } else if (this.timeblockarray[i]['timeblock'] == 3) {
+              this.stue416til20 = !this.stue216til20;
+            } else if (this.timeblockarray[i]['timeblock'] == 4) {
+              this.stue420til24 = false;
+            }
+          }
+            if (this.timeblockarray[i]['roomId'] == 5) {
+              if (this.timeblockarray[i]['timeblock'] == 1) {
+                this.stue508til12 = false;
+              } else if (this.timeblockarray[i]['timeblock'] == 2) {
+                this.stue512til16 = false;
+              } else if (this.timeblockarray[i]['timeblock'] == 3) {
+                this.stue516til20 = !this.stue216til20;
+              } else if (this.timeblockarray[i]['timeblock'] == 4) {
+                this.stue520til24 = false;
+              }
+          }
+          if (this.timeblockarray[i]['roomId'] == 6) {
+            if (this.timeblockarray[i]['timeblock'] == 1) {
+              this.stue608til12 = false;
+            } else if (this.timeblockarray[i]['timeblock'] == 2) {
+              this.stue612til16 = false;
+            } else if (this.timeblockarray[i]['timeblock'] == 3) {
+              this.stue616til20 = !this.stue216til20;
+            } else if (this.timeblockarray[i]['timeblock'] == 4) {
+              this.stue620til24 = false;
+            }
+          }
+          console.log(this.timeblockarray);
+          this.timeblockarray[i]['username'] = data[i]['username'];
+          this.timeblockarray[i]['id'] = data[i]['id'];
+        }
 
 
-      this.hentetBookings = data;
-      if (this.showTimeblocks===false){
-        this.showTimeblocks = true;
-      }
-      console.log(data);
-      console.log(this.timeblockarray);
+        this.hentetBookings = data;
+        if (this.showTimeblocks === false) {
+          this.showTimeblocks = true;
+        }
 
-    });
-}
-updatedato() {
+
+      });
+    console.log(this.timeblockarray);
+  }
+
+  updatedato() {
     this.date = (document.getElementById('datepicker') as HTMLInputElement).value;
     this.datearray = this.date.split('/');
     this.newBooking.day = this.datearray[1] as number;
     this.newBooking.month = this.datearray[0] as number;
     this.newBooking.year = this.datearray[2] as number;
     this.showforeloebige = true;
-}
+  }
 
 
-refresh() {
+  refresh() {
     this.updatedato();
     this.hentbooking();
-}
-showstueetagemethod() {
-    this.showstueetage = !this.showstueetage;
-}
-show1salmehod(){
-    this.shows1sal = !this.shows1sal;
-}
+  }
 
+// Opret Booking
+  opretBooking() {
+    this.updatedato();
 
-opretBooking() {
-  this.updatedato();
+    this.newBooking.day = this.datearray[1];
+    this.newBooking.month = this.datearray[0];
+    this.newBooking.year = this.datearray[2];
+    //this.newBooking.roomId = roomdId;
+    //this.newBooking.timeblock = timeblock;
+    this.newBooking.userId = 19;
+    this.newBooking.username = "s180000";
+    console.log(this.newBooking);
 
-  this.newBooking.day = this.datearray[1];
-  this.newBooking.month = this.datearray[0];
-  this.newBooking.year = this.datearray[2];
-  //this.newBooking.roomId = roomdId;
-  //this.newBooking.timeblock = timeblock;
-  this.newBooking.userId = 19;
-  this.newBooking.username = "s180000";
-  console.log(this.newBooking);
+    this.http.post('http://ec2-3-21-232-61.us-east-2.compute.amazonaws.com:8080/bookings', this.newBooking).subscribe(responseData => {
+      console.log(responseData);
+    });
+  }
 
-  this.http.post('http://ec2-3-21-232-61.us-east-2.compute.amazonaws.com:8080/bookings', this.newBooking).subscribe(responseData =>{
-    console.log(responseData);
-  });
-}
-addTimeblockandroomId(timeblock: number, roomId: number) {
+//Timeblock opdatering så man kan se det i den foreløbige booking
+  addTimeblockandroomId(timeblock: number, roomId: number) {
     this.newBooking.timeblock = timeblock;
-    if (this.amountoftimeblocks.length == 2){
-      this.amountoftimeblocks.pop();
-      this.amountoftimeblocks.push(this.newBooking.timeblock);
-    }else {
-      this.amountoftimeblocks.push(this.newBooking.timeblock);
+
+    if (timeblock == 1) {
+      this.amountoftimeblocks[0] = "08:00-12:00";
+    } else if (timeblock == 2) {
+      this.amountoftimeblocks[0] = "12:00-16:00";
+    } else if (timeblock == 3) {
+      this.amountoftimeblocks[0] = "16:00-20:00";
+    } else {
+      this.amountoftimeblocks[0] = "20:00-24:00";
     }
 
-
     this.newBooking.roomId = roomId;
-    this.testarray[0] = this.newBooking;
+    this.newBooking.timeblock = timeblock;
+  }
 
+  clearbooleans(){
+    this.stue108til12 = true;
+    this.stue112til16 = true;
+    this.stue116til20 = true;
+    this.stue120til24 = true;
 
-  console.log(this.newBooking);
-  console.log(this.amountoftimeblocks);
-}
-resettidsrum(){
-    this.amountoftimeblocks.pop();
-    this.amountoftimeblocks.pop();
-}
+    this.stue208til12 = true;
+    this.stue212til16 = true;
+    this.stue216til20 = true;
+    this.stue220til24 = true;
+
+    this.stue308til12 = true;
+    this.stue312til16 = true;
+    this.stue316til20 = true;
+    this.stue320til24 = true;
+
+    this.stue408til12 = true;
+    this.stue412til16 = true;
+    this.stue416til20 = true;
+    this.stue420til24 = true;
+
+    this.stue508til12 = true;
+    this.stue512til16 = true;
+    this.stue516til20 = true;
+    this.stue520til24 = true;
+
+    this.stue608til12 = true;
+    this.stue612til16 = true;
+    this.stue616til20 = true;
+    this.stue620til24 = true;
+
+  }
 }

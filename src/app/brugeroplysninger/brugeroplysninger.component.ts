@@ -45,12 +45,12 @@ export class BrugeroplysningerComponent implements OnInit {
       })
     };
 
-    this.http.get('http://ec2-3-20-238-191.us-east-2.compute.amazonaws.com:8082/users/18').subscribe
+    this.http.get('http://ec2-3-21-232-61.us-east-2.compute.amazonaws.com:8080/users/18').subscribe
     (data => {this.testBruger = JSON.stringify(data); });
     console.log(this.testBruger);
 
     // Test med opdeling af data:
-    this.http.get<JSON>('http://ec2-3-20-238-191.us-east-2.compute.amazonaws.com:8082/users/19').subscribe
+    this.http.get<JSON>('http://ec2-3-21-232-61.us-east-2.compute.amazonaws.com:8080/users/18').subscribe
     (data => {this.id = data['id'], this.username = data['username'],
       this.firstName = data['firstName'], this.lastName = data['lastName'], this.bookingList = data['bookingList']; });
     console.log(this.testBruger);

@@ -13,7 +13,8 @@ import {AppRoutingModule} from './app-routing.module';
 import { LokaleoversigtComponent } from './bookings/lokaleoversigt/lokaleoversigt.component';
 import { BrugeroplysningerComponent } from './brugeroplysninger/brugeroplysninger.component';
 import { Gruppe20Component } from './gruppe20/gruppe20.component';
-import {TopbarUdenknapperComponent} from './topbar-udenknapper/topbar-udenknapper.component';
+import {TopbarUdenknapperComponent} from './navigation/topbar-udenknapper/topbar-udenknapper.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -29,13 +30,13 @@ import {TopbarUdenknapperComponent} from './topbar-udenknapper/topbar-udenknappe
     BrugeroplysningerComponent,
     Gruppe20Component,
     TopbarUdenknapperComponent,
-
-
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

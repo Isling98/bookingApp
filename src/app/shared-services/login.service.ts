@@ -9,25 +9,25 @@ import {HttpHeaders} from '@angular/common/http';
  // Service der kan deles mellem components, så samme værdi af isUserLoggedIn bruges hver gang!
 export class LoginService {
 
-  private _httpString: string;
+  private HTTPString: string;
 
 
-  get httpString(): string {
-    return this._httpString;
+  get getHTTPString(): string {
+    return this.HTTPString;
   }
 
-  set httpString(value: string) {
-    this._httpString = value;
+  set setHTTPString(value: string) {
+    this.HTTPString = value;
   }
 
-  private _isUserLoggedIn: boolean;
+  private isUserLoggedIn: boolean;
 
 
   get getisUserLoggedIn(): boolean {
-    return this._isUserLoggedIn;
+    return this.isUserLoggedIn;
   }
 
   set setisUserLoggedIn(value: boolean) {
-    this._isUserLoggedIn = value;
+    this.isUserLoggedIn = value;
   }
 }

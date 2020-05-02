@@ -4,7 +4,42 @@
     <h4>- Indtast dine loginoplysninger tilhørende Brugerautorisationsmodulet</h4>
     <hr>
 
-    <form (submit)="onSubmit($event)">
+    <div class="col-sm-5">
+    <form (ngSubmit)="onSubmit($event)" #f="ngForm">
+      <div id = "login">
+        <div class="form-group">
+          <label for="brugernavn">Brugernavn</label>
+          <input
+            type="text"
+            id="brugernavn"
+            class="form-control"
+            ngModel
+            name="brugernavn"
+            required
+            #brugernavn="ngModel">
+          <span class="help-block" *ngIf="!brugernavn.valid && brugernavn.touched">Du skal indtaste et DTU-studienummer!</span>
+        </div>
+        <div class="form-group">
+          <label for="adgangskode">Adgangskode</label>
+          <input
+            type="text"
+            id="adgangskode"
+            class="form-control"
+            ngModel
+            name="adgangskode"
+            required
+            #adgangskode="ngModel">
+          <span class="help-block" *ngIf="!adgangskode.valid && adgangskode.touched">Du mangler at indtaste din adgangskode!</span>
+        </div>
+        <div class="input">
+          <input type="submit" *ngIf="brugernavn.valid && adgangskode.valid" value="Login">
+        </div>
+      </div>
+    </form>
+  </div>
+  </div>
+</div>
+<!--    <form (submit)="onSubmit($event)">
       <div class="input">
         <label>Brugernavn</label>
         <input type="text">
@@ -16,6 +51,5 @@
       <div class="input">
         <input type="submit"   value="Login">
       </div>
-    </form>
-  </div>
-</div>
+    </form>-->
+

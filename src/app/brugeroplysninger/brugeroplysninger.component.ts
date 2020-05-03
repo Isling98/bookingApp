@@ -31,7 +31,7 @@ export class BrugeroplysningerComponent implements OnInit {
 
     if (this.loginService.getisUserLoggedIn) {
       // Test med opdeling af data:
-    this.http.get<JSON>('http://ec2-3-21-232-61.us-east-2.compute.amazonaws.com:8081/user/username/'
+    this.http.get<JSON>('http://ec2-3-21-232-61.us-east-2.compute.amazonaws.com:8081/users/username/'
       + this.brugerService.getBruger().username,
       { headers: new HttpHeaders({
         'Content-Type':  'application/json',

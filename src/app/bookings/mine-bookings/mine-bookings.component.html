@@ -32,8 +32,8 @@
 
       <ng-container matColumnDef="delete">
         <mat-header-cell *matHeaderCellDef>Delete</mat-header-cell>
-        <mat-cell *matCellDef="let element">
-          <button mat-flat-button id="delete-buttom" color="red" (click)="confirmDeleteBooking()">Delete this booking</button>
+        <mat-cell *matCellDef="let row">
+          <button mat-flat-button id="delete-buttom" color="red" (click)="confirmDeleteBooking(row.id)">Delete this booking</button>
         </mat-cell>
       </ng-container>
 

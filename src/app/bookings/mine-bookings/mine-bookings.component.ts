@@ -53,32 +53,19 @@ export class MineBookingsComponent implements OnInit {
       });
   }
 
-  confirmDeleteBooking() {
+  confirmDeleteBooking(id: number) {
     this.deletedialogService.openDialog()
       .afterClosed().subscribe(response => {
         console.log(response);
         console.log(this.hentetBookings);
-      /**
-       * Her skal laves et kald med if(responese === true) så skal deleteBookingDatabase (måske andet navn) kaldes, hvor der slettes
-       * booking fra databasen vha. http delete. else console.log(response)
-       */
+
+        if (response === true) {
+          console.log(id);
+          this.http.delete('http://ec2-3-21-232-61.us-east-2.compute.amazonaws.com:8080/bookings/' + id)
+            .subscribe(() => {
+              this.fetchData();
+            });
+        }
     });
   }
-
-  deleteBooking() {
-    /**
-     * Har svært ved at tilgå de enkelte elementer at listen af bookings, som bliver lavet inde i mine-bookings-html.
-     * Hvis det overhovedet kan lade sig gøre, så skal jeg have fat i en måde, hvor man kan få fat i hvert element som bliver lavet
-     * ud fra: ngFor-loopet før jeg kan lave en delete metode vha. knapper.
-     *
-     * PRØV:
-     * Benyt samme metode som mads har brugt til at tilgå et element
-     */
-  }
-
-  /**
-   * Her kunne laves en delete-metode, som fjerne ud fra bookingens id.
-   * Metoden skal kun kaldes gennem knappen delete fra html, og derfra evt. måske en pop-op for at tjekke at brugeren er sikker.
-   * Tjek udemy kurses for delete-metode (eller nettet)
-   */
 }

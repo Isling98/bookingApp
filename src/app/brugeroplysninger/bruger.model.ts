@@ -1,27 +1,16 @@
 export class Bruger {
-  public brugernavn: string;
-  public email: string;
-  public sidstAktiv: string;
-  public campusnetID: string;
-  public studieretning: string;
-  public fornavn: string;
-  public efternavn: string;
-  public adgangskode: string;
-  public hobby: string;
-  public webside: string;
+  public id: number;
+  public firstName: string;
+  public username: string;
+  public lastName: string;
+  public bookingList: number[];
 
-  constructor(brugernavn: string, email: string, sidstAktiv: string,
-              campusnetID: string, studieretning: string, fornavn: string,
-              efternavn: string, adgangskode: string, hobby: string, webside: string) {
-    this.brugernavn = brugernavn;
-    this.email = email;
-    this.sidstAktiv = sidstAktiv;
-    this.campusnetID = campusnetID;
-    this.studieretning = studieretning;
-    this.fornavn = fornavn;
-    this.efternavn = efternavn;
-    this.adgangskode = adgangskode;
-    this.hobby = hobby;
-    this.webside = webside;
+  constructor(id: number, firstName: string, username: string,
+              lastName: string, bookingList: number[]) {
+    this.id = id;
+    this.firstName = firstName;
+    this.username = username;
+    this.lastName = lastName;
+    this.bookingList = bookingList;
   }
 }

@@ -4,6 +4,9 @@ import {HttpClient} from '@angular/common/http';
 import {BookingModel} from '../booking.model';
 import {pipe} from 'rxjs';
 
+import {Component, Input, OnInit} from '@angular/core';
+import {FormGroup} from '@angular/forms';
+import {LoginService} from '../../shared-services/login.service';
 
 @Component({
   selector: 'app-lokale-booking',
@@ -11,6 +14,10 @@ import {pipe} from 'rxjs';
   styleUrls: ['./lokale-booking.component.css']
 })
 export class LokaleBookingComponent implements OnInit {
+  public isUserLoggedIn = this.loginService.getUserLoggedIn();
+
+  recipeForm: FormGroup;
+  @Input() newBooking: {personer: number, dato: number, start: number, slut: number};
   url = 'http://ec2-3-21-232-61.us-east-2.compute.amazonaws.com:8080';
   hentetBookings = [];
   dato: Date = new Date();
@@ -26,6 +33,7 @@ export class LokaleBookingComponent implements OnInit {
   shows1sal: boolean = false;
   showforeloebige: boolean = false;
 
+  constructor(private loginService: LoginService) { }
   //boolean for rumledighed
   //Stue lokale 1
   stue108til12: boolean = true;

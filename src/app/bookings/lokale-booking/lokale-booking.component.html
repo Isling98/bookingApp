@@ -1,6 +1,9 @@
 <div class="container">
   <div class="row boxblue">
     <div class="col-lg-3">
+<div class="container" *ngIf="isUserLoggedIn">
+  <div class="col-lg-12">
+    <div class="row boxblue">
 
       <mat-form-field>
         <input matInput [matDatepicker]="picker" placeholder="Choose a date" id="datepicker">
@@ -91,6 +94,14 @@
         <button *ngIf="stue108til12" class="btn btn-success" style="font-size: 20px" (click)="addTimeblockandroomId(1, 1)">08-12</button>
         <button *ngIf="!stue108til12" class="btn btn-danger disabled" style="font-size: 20px" >08-12</button>
 
+    </div>
+  </div>
+  </div>
+</div>
+<div class="container" *ngIf="!isUserLoggedIn">
+  <div class="col-lg-12">
+    <h3>Du skal være logget ind for at tilgå denne side!</h3>
+  </div>
           &nbsp;
         <button *ngIf="stue112til16" class="btn btn-success" style="font-size: 20px" (click)="addTimeblockandroomId(2, 1)">12-16</button>
         <button *ngIf="!stue112til16" class="btn btn-danger disabled" style="font-size: 20px" id=1012 >12-16</button>

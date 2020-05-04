@@ -6,13 +6,14 @@ import {Bruger} from '../brugeroplysninger/bruger.model';
 })
 export class BrugerService {
 
-  public bruger: Bruger = new Bruger('s123456', 's123456@student.dtu.dk',
-    '21:22', 'ukendt', 'demobruger', 'Dennis',
-    'Demostudent', '<IKKE OFFENTLIG>', 'Tennis og programmering',
-    'http://www.diplom.dtu.dk/');
+  public bruger: Bruger = new Bruger(null, '', '', '', []);
 
   getBruger() {
     return this.bruger;
+  }
+
+  setBruger(bruger: Bruger) {
+    this.bruger = bruger;
   }
 
   constructor() { }

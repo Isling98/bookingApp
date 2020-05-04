@@ -3,7 +3,11 @@ import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import {BookingModel} from '../booking.model';
 import {map} from 'rxjs/operators';
+import {httpheaderService} from '../../shared-services/httpheader.service';
+import {DeletedialogService} from '../../shared-services/deletedialog.service';
+import {MatTableDataSource} from '@angular/material/table';
 import {LoginService} from '../../shared-services/login.service';
+import {BrugerService} from '../../shared-services/bruger.service';
 
 @Component({
   selector: 'app-mybookings',
@@ -16,16 +20,20 @@ export class MineBookingsComponent implements OnInit {
   public booking: BookingModel = new BookingModel();
 
   hentetBookings = [];
+  listData: MatTableDataSource<any>;
+  displayedColumns: string[] = ['id', 'roomId', 'timeblock', 'month', 'day', 'delete'];
 
   constructor(private http: HttpClient,
-              private loginService: LoginService) {}
+              private httpHeader: httpheaderService,
+              private deletedialogService: DeletedialogService,
+              private loginService: LoginService,
+              private brugerService: BrugerService) {}
 
   ngOnInit(): void {
     this.fetchData();
 
     const username = 's180077';
     const password = '123';
-
     const authorizationData = 'Basic ' + btoa(username + ':' + password);
 
     const headerOptions = {
@@ -36,9 +44,12 @@ export class MineBookingsComponent implements OnInit {
   }
 
   public fetchData() {
-    /* tslint:disable:no-string-literal */
-    // get booking for user 18
-    this.http.get<JSON>('http://ec2-3-20-238-191.us-east-2.compute.amazonaws.com:8082/bookings/user/18')
+    this.http.get<JSON>('http://ec2-3-21-232-61.us-east-2.compute.amazonaws.com:8081/bookings/user/'
+    + this.brugerService.getBruger().id,
+      { headers: new HttpHeaders({
+          'Content-Type':  'application/json',
+          Authorization: 'Basic ' + btoa(this.loginService.getHTTPString)
+        })})
       .pipe(map(responseData => {
         const postArray = [];
         for (const key in responseData) {
@@ -49,27 +60,28 @@ export class MineBookingsComponent implements OnInit {
         return postArray;
       }))
       .subscribe(data => {
-        /*
-        this.booking.id = data['id'],
-        this.booking.roomId = data['roomId'],
-        this.booking.timeblock = data['timeblock'],
-        this.booking.username = data['username']; });
-         */
         console.log(data);
         this.hentetBookings = data;
-        /* tslint:disable:no-string-literal */
+        this.listData = new MatTableDataSource(this.hentetBookings);
       });
   }
 
-  hentBooking() {
-    // tslint:disable-next-line:max-line-length
+  confirmDeleteBooking(id: number) {
+    this.deletedialogService.openDialog()
+      .afterClosed().subscribe(response => {
+        console.log(response);
+        console.log(this.hentetBookings);
 
+        if (response === true) {
+          console.log(id);
+          this.http.delete('http://ec2-3-21-232-61.us-east-2.compute.amazonaws.com:8081/bookings/' + id,
+            { headers: new HttpHeaders({
+              'Content-Type':  'application/json',
+              Authorization: 'Basic ' + btoa(this.loginService.getHTTPString)})})
+            .subscribe(() => {
+              this.fetchData();
+            });
+        }
+    });
   }
-
-  /**
-   * Her kunne laves en delete-metode, som fjerne ud fra bookingens id.
-   * Metoden skal kun kaldes gennem knappen delete fra html, og derfra evt. måske en pop-op for at tjekke at brugeren er sikker.
-   * Tjek udemy kurses for delete-metode (eller nettet)
-   */
-
 }

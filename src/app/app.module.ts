@@ -13,6 +13,11 @@ import {AppRoutingModule} from './app-routing.module';
 import { LokaleoversigtComponent } from './bookings/lokaleoversigt/lokaleoversigt.component';
 import { BrugeroplysningerComponent } from './brugeroplysninger/brugeroplysninger.component';
 import { Gruppe20Component } from './gruppe20/gruppe20.component';
+import { ConfirmDeleteComponent } from './confirm-delete/confirm-delete.component';
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatTableModule} from '@angular/material/table';
 import {TopbarUdenknapperComponent} from './navigation/topbar-udenknapper/topbar-udenknapper.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatDatepickerModule} from '@angular/material/datepicker';
@@ -35,6 +40,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrugeroplysningerComponent,
     Gruppe20Component,
     TopbarUdenknapperComponent,
+    ConfirmDeleteComponent,
+    TopbarUdenknapperComponent
   ],
   imports: [
     BrowserModule,
@@ -48,6 +55,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatNativeDateModule,
     BrowserAnimationsModule,
 
+    MatIconModule,
+    MatButtonModule,
+    MatDialogModule,
+    MatTableModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

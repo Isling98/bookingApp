@@ -12,7 +12,7 @@ import {LoginService} from '../../shared-services/login.service';
   styleUrls: ['./lokale-booking.component.css']
 })
 export class LokaleBookingComponent implements OnInit {
-  public isUserLoggedIn = this.loginService.getUserLoggedIn();
+  public isUserLoggedIn = this.loginService.getisUserLoggedIn;
   url = 'http://ec2-3-21-232-61.us-east-2.compute.amazonaws.com:8081';
   hentetBookings = [];
   dato: Date = new Date();
@@ -64,6 +64,7 @@ export class LokaleBookingComponent implements OnInit {
   stue612til16: boolean = true;
   stue616til20: boolean = true;
   stue620til24: boolean = true;
+
 
   //lokalearray
   lokalearray = [0, 1, 2, 3, 4, 5, 6];

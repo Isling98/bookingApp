@@ -6,7 +6,7 @@ import {HttpHeaders} from '@angular/common/http';
   providedIn: 'root'
 })
 
- // Service der kan deles mellem components, så samme værdi af isUserLoggedIn bruges hver gang!
+// Service der kan deles mellem components, så samme værdi af isUserLoggedIn bruges hver gang!
 export class LoginService {
 
   private HTTPString: string;

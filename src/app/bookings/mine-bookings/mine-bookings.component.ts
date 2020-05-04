@@ -7,6 +7,7 @@ import {httpheaderService} from '../../shared-services/httpheader.service';
 import {DeletedialogService} from '../../shared-services/deletedialog.service';
 import {MatTableDataSource} from '@angular/material/table';
 import {LoginService} from '../../shared-services/login.service';
+import {BrugerService} from '../../shared-services/bruger.service';
 
 @Component({
   selector: 'app-mybookings',
@@ -25,7 +26,8 @@ export class MineBookingsComponent implements OnInit {
   constructor(private http: HttpClient,
               private httpHeader: httpheaderService,
               private deletedialogService: DeletedialogService,
-              private loginService: LoginService) {}
+              private loginService: LoginService,
+              private brugerService: BrugerService) {}
 
   ngOnInit(): void {
     this.fetchData();
@@ -42,7 +44,12 @@ export class MineBookingsComponent implements OnInit {
   }
 
   public fetchData() {
-    this.http.get<JSON>('http://ec2-3-21-232-61.us-east-2.compute.amazonaws.com:8080/bookings/user/19')
+    this.http.get<JSON>('http://ec2-3-21-232-61.us-east-2.compute.amazonaws.com:8081/bookings/user/'
+    + this.brugerService.getBruger().id,
+      { headers: new HttpHeaders({
+          'Content-Type':  'application/json',
+          Authorization: 'Basic ' + btoa(this.loginService.getHTTPString)
+        })})
       .pipe(map(responseData => {
         const postArray = [];
         for (const key in responseData) {
@@ -67,7 +74,10 @@ export class MineBookingsComponent implements OnInit {
 
         if (response === true) {
           console.log(id);
-          this.http.delete('http://ec2-3-21-232-61.us-east-2.compute.amazonaws.com:8080/bookings/' + id)
+          this.http.delete('http://ec2-3-21-232-61.us-east-2.compute.amazonaws.com:8081/bookings/' + id,
+            { headers: new HttpHeaders({
+              'Content-Type':  'application/json',
+              Authorization: 'Basic ' + btoa(this.loginService.getHTTPString)})})
             .subscribe(() => {
               this.fetchData();
             });

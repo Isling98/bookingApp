@@ -15,6 +15,7 @@ export class NavigationComponent implements OnInit {
   }
 
   logUd() {
-    this.loginService.setUserLoggedIn(false);
+    this.loginService.setisUserLoggedIn = false;
+    console.log(this.loginService.getisUserLoggedIn);
   }
 }

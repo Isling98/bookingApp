@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { MaterialModule } from './bookings/lokale-booking/material.module';
+
 import { AppComponent } from './app.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { LoginScreenComponent } from './login/login-screen/login-screen.component';
@@ -13,8 +13,8 @@ import {AppRoutingModule} from './app-routing.module';
 import { LokaleoversigtComponent } from './bookings/lokaleoversigt/lokaleoversigt.component';
 import { BrugeroplysningerComponent } from './brugeroplysninger/brugeroplysninger.component';
 import { Gruppe20Component } from './gruppe20/gruppe20.component';
-import {TopbarUdenknapperComponent} from './topbar-udenknapper/topbar-udenknapper.component';
-import {MatDatepickerModule} from '@angular/material/datepicker';
+import {TopbarUdenknapperComponent} from './navigation/topbar-udenknapper/topbar-udenknapper.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -29,14 +29,14 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
     LokaleoversigtComponent,
     BrugeroplysningerComponent,
     Gruppe20Component,
-    TopbarUdenknapperComponent
-
+    TopbarUdenknapperComponent,
   ],
   imports: [
     BrowserModule,
-    MaterialModule,
     HttpClientModule,
     AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

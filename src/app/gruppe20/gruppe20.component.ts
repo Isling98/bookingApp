@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {BrugerService} from '../shared-services/bruger.service';
 import {Bruger} from '../brugeroplysninger/bruger.model';
-import {LoginService} from '../shared-services/login.service';
+
 
 @Component({
   selector: 'app-gruppe25',

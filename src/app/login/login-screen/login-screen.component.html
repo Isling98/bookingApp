@@ -4,18 +4,41 @@
     <h4>- Indtast dine loginoplysninger tilhørende Brugerautorisationsmodulet</h4>
     <hr>
 
-    <form (submit)="onSubmit($event)">
-      <div class="input">
-        <label>Brugernavn</label>
-        <input type="text">
-      </div>
-      <div class="input">
-        <label>Adgangskode</label>
-        <input type="password">
-      </div>
-      <div class="input">
-        <input type="submit"   value="Login">
+    <div class="col-sm-5">
+    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+      <div id = "login">
+        <div class="form-group">
+          <label for="brugernavn">Brugernavn</label>
+          <input
+            type="text"
+            id="brugernavn"
+            class="form-control"
+            ngModel
+            name="brugernavn"
+            required
+            #brugernavn="ngModel">
+          <span class="help-block" *ngIf="!brugernavn.valid && brugernavn.touched">Du skal indtaste et DTU-studienummer!</span>
+        </div>
+        <div class="form-group">
+          <label for="adgangskode">Adgangskode</label>
+          <input
+            type="text"
+            id="adgangskode"
+            class="form-control"
+            ngModel
+            name="adgangskode"
+            required
+            #adgangskode="ngModel">
+          <span class="help-block" *ngIf="!adgangskode.valid && adgangskode.touched">Du mangler at indtaste din adgangskode!</span>
+        </div>
+        <div class="input">
+          <input
+            type="submit" *ngIf="brugernavn.valid && adgangskode.valid" value="Login" name="submit">
+          <span class="help-block" *ngIf="f.submitted">Vent venligst - logger dig ind...</span>
+        </div>
       </div>
     </form>
   </div>
+  </div>
 </div>
+

@@ -25,6 +25,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatNativeDateModule} from '@angular/material/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {ConfirmOpretComponent} from './bookings/lokale-booking/confirm-opret/confirm-opret.component';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     Gruppe20Component,
     TopbarUdenknapperComponent,
     ConfirmDeleteComponent,
-    TopbarUdenknapperComponent
+    TopbarUdenknapperComponent,
+    ConfirmOpretComponent
   ],
   imports: [
     BrowserModule,

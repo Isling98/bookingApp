@@ -11,11 +11,14 @@
 
       </div>
     <div class="col-lg-2">
-      <label for="findknap"> </label>
-      <button class="btn btn-primary" id="findknap" style="font-family: NeoSansW01, serif" (click)="refresh()">Find ledige lokaler</button>
+      <div class="row">
+        <label for="findknap"> </label>
+        <button mat-flat-button id="findknap" color="red" (click)="refresh()" style="font-family: NeoSansW01, serif; font-size: 17px">Find ledige lokaler</button>
+      </div>
+
     </div>
 
-    <div *ngIf="showforeloebige" class="col-lg-7" id="foreloebige">
+    <div *ngIf="showforeloebige" class="col-lg-5" id="foreloebige">
       <h1>Din foreløbige booking:</h1>
       <p style="font-size: 20px; font-family: NeoSansW01, serif">
         Dato: {{newBooking.day}}
@@ -27,7 +30,10 @@
         Tidsrum: {{amountoftimeblocks[0]}}
 
       </p>
-      <button class="btn btn-primary" (click)="opretBooking()" style="float: right; font-family: NeoSansW01, serif">Opret Booking</button>
+
+    </div>
+    <div class="col-lg-2" *ngIf="showforeloebige">
+      <button mat-flat-button id="opretbooking" color="red" (click)="opretBooking()" style="font-family: NeoSansW01, serif; font-size: 17px"  >Opret Booking</button>
     </div>
   </div>
 
@@ -126,16 +132,16 @@
         <label for=3 style="float: left; font-size: 20px">Stue lokale 3: </label>
         <br>
         <div class="btn-group-vertical" id=3 style="min-width: 150px">
-          <button *ngIf="stue308til12" class="btn btn-success" style="font-size: 20px" (click)="addTimeblockandroomId(1, 2)">08-12</button>
+          <button *ngIf="stue308til12" class="btn btn-success" style="font-size: 20px" (click)="addTimeblockandroomId(1, 3)">08-12</button>
           <button *ngIf="!stue308til12" class="btn btn-danger disabled" style="font-size: 20px" >08-12</button>
           &nbsp;
-          <button *ngIf="stue312til16" class="btn btn-success" style="font-size: 20px"  (click)="addTimeblockandroomId(2, 2)">12-16</button>
+          <button *ngIf="stue312til16" class="btn btn-success" style="font-size: 20px"  (click)="addTimeblockandroomId(2, 3)">12-16</button>
           <button *ngIf="!stue312til16" class="btn btn-danger disabled" style="font-size: 20px"  >12-16</button>
           &nbsp;
-          <button *ngIf="stue316til20" class="btn btn-success" style="font-size: 20px"  (click)="addTimeblockandroomId(3, 2)">16-20</button>
+          <button *ngIf="stue316til20" class="btn btn-success" style="font-size: 20px"  (click)="addTimeblockandroomId(3, 3)">16-20</button>
           <button *ngIf="!stue316til20" class="btn btn-danger disabled" style="font-size: 20px"  >16-20</button>
           &nbsp;
-          <button *ngIf="stue320til24" class="btn btn-success" style="font-size: 20px" (click)="addTimeblockandroomId(4, 2)">20-24</button>
+          <button *ngIf="stue320til24" class="btn btn-success" style="font-size: 20px" (click)="addTimeblockandroomId(4, 3)">20-24</button>
           <button *ngIf="!stue320til24" class="btn btn-danger disabled" style="font-size: 20px" >20-24</button>
         </div>
 
@@ -143,16 +149,16 @@
       <div class="col-lg-2">
         <label for=4 style="float: left; font-size: 20px">Stue lokale 4: </label>
         <div class="btn-group-vertical" id=4 style="min-width: 150px">
-          <button *ngIf="stue408til12" class="btn btn-success" style="font-size: 20px" (click)="addTimeblockandroomId(1, 2)">08-12</button>
+          <button *ngIf="stue408til12" class="btn btn-success" style="font-size: 20px" (click)="addTimeblockandroomId(1, 4)">08-12</button>
           <button *ngIf="!stue408til12" class="btn btn-danger disabled" style="font-size: 20px" >08-12</button>
           &nbsp;
-          <button *ngIf="stue412til16" class="btn btn-success " style="font-size: 20px"  (click)="addTimeblockandroomId(2, 2)">12-16</button>
+          <button *ngIf="stue412til16" class="btn btn-success " style="font-size: 20px"  (click)="addTimeblockandroomId(2, 4)">12-16</button>
           <button *ngIf="!stue412til16" class="btn btn-danger disabled" style="font-size: 20px"  >12-16</button>
           &nbsp;
-          <button *ngIf="stue416til20" class="btn btn-success" style="font-size: 20px"  (click)="addTimeblockandroomId(3, 2)">16-20</button>
+          <button *ngIf="stue416til20" class="btn btn-success" style="font-size: 20px"  (click)="addTimeblockandroomId(3, 4)">16-20</button>
           <button *ngIf="!stue416til20" class="btn btn-danger disabled" style="font-size: 20px"  >16-20</button>
           &nbsp;
-          <button *ngIf="stue420til24" class="btn btn-success" style="font-size: 20px" (click)="addTimeblockandroomId(4, 2)">20-24</button>
+          <button *ngIf="stue420til24" class="btn btn-success" style="font-size: 20px" (click)="addTimeblockandroomId(4, 4)">20-24</button>
           <button *ngIf="!stue420til24" class="btn btn-danger disabled" style="font-size: 20px">20-24</button>
         </div>
       </div>
@@ -160,16 +166,16 @@
         <label for=5 style="float: left; font-size: 20px">Stue lokale 5: </label>
         <br>
         <div class="btn-group-vertical" id=5 style="min-width: 150px">
-          <button *ngIf="stue508til12" class="btn btn-success" style="font-size: 20px" (click)="addTimeblockandroomId(1, 2)">08-12</button>
+          <button *ngIf="stue508til12" class="btn btn-success" style="font-size: 20px" (click)="addTimeblockandroomId(1, 5)">08-12</button>
           <button *ngIf="!stue508til12" class="btn btn-danger disabled" style="font-size: 20px">08-12</button>
           &nbsp;
-          <button *ngIf="stue512til16" class="btn btn-success" style="font-size: 20px"  (click)="addTimeblockandroomId(2, 2)">12-16</button>
+          <button *ngIf="stue512til16" class="btn btn-success" style="font-size: 20px"  (click)="addTimeblockandroomId(2, 5)">12-16</button>
           <button *ngIf="!stue512til16" class="btn btn-danger disabled" style="font-size: 20px" >12-16</button>
           &nbsp;
-          <button *ngIf="stue516til20" class="btn btn-success" style="font-size: 20px"  (click)="addTimeblockandroomId(3, 2)">16-20</button>
+          <button *ngIf="stue516til20" class="btn btn-success" style="font-size: 20px"  (click)="addTimeblockandroomId(3, 5)">16-20</button>
           <button *ngIf="!stue516til20" class="btn btn-danger disabled" style="font-size: 20px" >16-20</button>
           &nbsp;
-          <button *ngIf="stue520til24" class="btn btn-success" style="font-size: 20px" (click)="addTimeblockandroomId(4, 2)">20-24</button>
+          <button *ngIf="stue520til24" class="btn btn-success" style="font-size: 20px" (click)="addTimeblockandroomId(4, 5)">20-24</button>
           <button *ngIf="!stue520til24" class="btn btn-danger disabled" style="font-size: 20px" >20-24</button>
 
         </div>
@@ -177,26 +183,22 @@
       <div class="col-lg-2">
         <label for=6 style="float: left; font-size: 20px">Stue lokale 6: </label>
         <div class="btn-group-vertical" id=6 style="min-width: 150px;">
-          <button *ngIf="stue608til12" class="btn btn-success" style="font-size: 20px" (click)="addTimeblockandroomId(1, 2)">08-12</button>
+          <button *ngIf="stue608til12" class="btn btn-success" style="font-size: 20px" (click)="addTimeblockandroomId(1, 6)">08-12</button>
           <button *ngIf="!stue608til12" class="btn btn-danger disabled" style="font-size: 20px" >08-12</button>
           &nbsp;
-          <button *ngIf="stue612til16" class="btn btn-success" style="font-size: 20px"  (click)="addTimeblockandroomId(2, 2)">12-16</button>
+          <button *ngIf="stue612til16" class="btn btn-success" style="font-size: 20px"  (click)="addTimeblockandroomId(2, 6)">12-16</button>
           <button *ngIf="!stue612til16" class="btn btn-danger disabled" style="font-size: 20px" >12-16</button>
           &nbsp;
-          <button *ngIf="stue616til20" class="btn btn-success" style="font-size: 20px"  (click)="addTimeblockandroomId(3, 2)">16-20</button>
+          <button *ngIf="stue616til20" class="btn btn-success" style="font-size: 20px"  (click)="addTimeblockandroomId(3, 6)">16-20</button>
           <button *ngIf="!stue616til20" class="btn btn-danger disabled" style="font-size: 20px" >16-20</button>
           &nbsp;
-          <button *ngIf="stue620til24" class="btn btn-success" style="font-size: 20px" (click)="addTimeblockandroomId(4, 2)">20-24</button>
+          <button *ngIf="stue620til24" class="btn btn-success" style="font-size: 20px" (click)="addTimeblockandroomId(4, 6)">20-24</button>
           <button *ngIf="!stue620til24" class="btn btn-danger disabled" style="font-size: 20px">20-24</button>
         </div>
     </div>
   </div>
 
 <!--!> Stueetage <-->
-  <p *ngIf="hentetBookings.length < 1">Ingen bookings</p>
-  <ul *ngIf="hentetBookings.length >= 1">
-    <li *ngFor="let data of hentetBookings">Booking: {{data.id}} - Room: {{data.roomId}} - From: {{data.timeblock}}
-  </ul>
 
 
 

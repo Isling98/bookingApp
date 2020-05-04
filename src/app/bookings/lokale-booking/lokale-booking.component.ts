@@ -8,6 +8,7 @@ import {LoginService} from '../../shared-services/login.service';
 import {httpheaderService} from '../../shared-services/httpheader.service';
 import {Bruger} from '../../brugeroplysninger/bruger.model';
 import {BrugerService} from '../../shared-services/bruger.service';
+import {DeletedialogService} from '../../shared-services/deletedialog.service';
 
 @Component({
   selector: 'app-lokale-booking',
@@ -80,7 +81,10 @@ export class LokaleBookingComponent implements OnInit {
   public bruger: Bruger = this.brugerService.getBruger();
 
 
-  constructor(private http: HttpClient, private loginService: LoginService, private brugerService: BrugerService) {
+  constructor(private http: HttpClient,
+              private loginService: LoginService,
+              private brugerService: BrugerService,
+              private dialogService: DeletedialogService) {
   }
 
   ngOnInit(): void {
@@ -89,8 +93,6 @@ export class LokaleBookingComponent implements OnInit {
 
   // Booking
   hentbooking() {
-    this.showTimeblocks = false;
-    this.clearbooleans();
 
     this.http.get<JSON>(this.url + '/bookings/findByDate/' + this.datearray[1] + '/' + this.datearray[0] + '/' + this.datearray[2], { headers: new HttpHeaders({
         'Content-Type':  'application/json',
@@ -188,27 +190,30 @@ export class LokaleBookingComponent implements OnInit {
           console.log(this.timeblockarray);
           this.timeblockarray[i]['username'] = data[i]['username'];
           this.timeblockarray[i]['id'] = data[i]['id'];
+
+
         }
 
-
+        this.showforeloebige = true;
         this.hentetBookings = data;
-        if (this.showTimeblocks === false) {
-          this.showTimeblocks = true;
-        }
+
 
 
       });
     console.log(this.timeblockarray);
     this.resettidsrum();
+
+
   }
 
   updatedato() {
+    this.showforeloebige = false;
     this.date = (document.getElementById('datepicker') as HTMLInputElement).value;
     this.datearray = this.date.split('/');
     this.newBooking.day = this.datearray[1] as number;
     this.newBooking.month = this.datearray[0] as number;
     this.newBooking.year = this.datearray[2] as number;
-    this.showforeloebige = true;
+
   }
 
 
@@ -223,15 +228,22 @@ export class LokaleBookingComponent implements OnInit {
     this.newBooking.month = this.datearray[0];
     this.newBooking.year = this.datearray[2];
     this.newBooking.day = this.datearray[1];
-
     console.log(this.newBooking);
 
+    this.dialogService.openDialogconfirm()
+      .afterClosed().subscribe(response => {
+      console.log(response);
+      console.log(this.hentetBookings);
 
-    this.http.post(this.url + '/bookings/', JSON.stringify(this.newBooking), { headers: new HttpHeaders({
-        'Content-Type':  'application/json',
-        Authorization: 'Basic ' + btoa(this.loginService.getHTTPString)
-      })}).subscribe(responseData => {
-      console.log(responseData);
+      if (response === true) {
+        this.http.post(this.url + '/bookings/', JSON.stringify(this.newBooking), { headers: new HttpHeaders({
+            'Content-Type':  'application/json',
+            Authorization: 'Basic ' + btoa(this.loginService.getHTTPString)
+          })}).subscribe(responseData => {
+          console.log(responseData);
+
+        });
+      }
     });
   }
 

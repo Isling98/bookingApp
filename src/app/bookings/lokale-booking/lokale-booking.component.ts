@@ -105,6 +105,7 @@ export class LokaleBookingComponent implements OnInit {
 
 
         this.timeblockarray.length = data.length;
+        this.clearbooleans();
         for (let i = 0; i < this.timeblockarray.length; i++) {
           this.timeblockarray[i] = new BookingModel();
           this.timeblockarray[i]['timeblock'] = data[i]['timeblock'];
@@ -193,6 +194,7 @@ export class LokaleBookingComponent implements OnInit {
 
       });
     console.log(this.timeblockarray);
+    this.resettidsrum();
   }
 
   updatedato() {
@@ -246,6 +248,9 @@ export class LokaleBookingComponent implements OnInit {
     this.newBooking.timeblock = timeblock;
   }
 
+  resettidsrum(){
+    this.amountoftimeblocks.pop();
+  }
   clearbooleans(){
     this.stue108til12 = true;
     this.stue112til16 = true;

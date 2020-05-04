@@ -1,10 +1,13 @@
 import {map} from 'rxjs/operators';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {BookingModel} from '../booking.model';
 import {pipe} from 'rxjs';
 import {Component, Input, OnInit} from '@angular/core';
 import {FormGroup} from '@angular/forms';
 import {LoginService} from '../../shared-services/login.service';
+import {httpheaderService} from '../../shared-services/httpheader.service';
+import {Bruger} from '../../brugeroplysninger/bruger.model';
+import {BrugerService} from '../../shared-services/bruger.service';
 
 @Component({
   selector: 'app-lokale-booking',
@@ -74,9 +77,10 @@ export class LokaleBookingComponent implements OnInit {
 
 
   public newBooking: BookingModel = new BookingModel();
+  public bruger: Bruger = this.brugerService.getBruger();
 
 
-  constructor(private http: HttpClient, private loginService: LoginService) {
+  constructor(private http: HttpClient, private loginService: LoginService, private brugerService: BrugerService) {
   }
 
   ngOnInit(): void {
@@ -88,7 +92,10 @@ export class LokaleBookingComponent implements OnInit {
     this.showTimeblocks = false;
     this.clearbooleans();
 
-    this.http.get<JSON>(this.url + '/bookings/findByDate/' + this.datearray[1] + '/' + this.datearray[0] + '/' + this.datearray[2])
+    this.http.get<JSON>(this.url + '/bookings/findByDate/' + this.datearray[1] + '/' + this.datearray[0] + '/' + this.datearray[2], { headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+        Authorization: 'Basic ' + btoa(this.loginService.getHTTPString)
+      })})
       .pipe(map(responseData => {
         const postArray = [];
         for (const key in responseData) {
@@ -213,17 +220,17 @@ export class LokaleBookingComponent implements OnInit {
 // Opret Booking
   opretBooking() {
     this.updatedato();
-
-    this.newBooking.day = this.datearray[1];
     this.newBooking.month = this.datearray[0];
     this.newBooking.year = this.datearray[2];
-    //this.newBooking.roomId = roomdId;
-    //this.newBooking.timeblock = timeblock;
-    this.newBooking.userId = 19;
-    this.newBooking.username = "s180000";
+    this.newBooking.day = this.datearray[1];
+
     console.log(this.newBooking);
 
-    this.http.post('http://ec2-3-21-232-61.us-east-2.compute.amazonaws.com:8080/bookings', this.newBooking).subscribe(responseData => {
+
+    this.http.post(this.url + '/bookings/', JSON.stringify(this.newBooking), { headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+        Authorization: 'Basic ' + btoa(this.loginService.getHTTPString)
+      })}).subscribe(responseData => {
       console.log(responseData);
     });
   }

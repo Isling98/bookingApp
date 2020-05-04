@@ -1,8 +1,7 @@
 export class BookingModel {
-  id: number;
   timeblock: number;
   roomId: number;
-  userId: number;
+  user_id: number;
   username: string;
   month: number;
   year: number;

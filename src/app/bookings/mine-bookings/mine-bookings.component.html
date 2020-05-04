@@ -1,6 +1,6 @@
 <div class="container">
 <div class="col-xs-12">
-  <div class="row boxblue">
+  <div class="row boxblue" *ngIf="isUserLoggedIn">
     <mat-table [dataSource]="listData">
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
       <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
@@ -42,12 +42,17 @@
     <input type="number" value="{{booking.userId}}"><button (click)="fetchData()">Opdater booking</button>
     <p *ngIf="hentetBookings.length < 1">Ingen bookings</p>
     <ul *ngIf="hentetBookings.length >= 1">
-      <li *ngFor="let data of hentetBookings">Booking: {{data.id}} - Room: {{data.roomId}} - From: {{data.timeblock}}
-        &nbsp;&nbsp;&nbsp; - &nbsp;&nbsp;&nbsp;
-        <button mat-flat-button id="delete-buttom" color="red" (click)="confirmDeleteBooking()">Delete this booking</button> <br> <br>
-      </li>
+      <li *ngFor="let data of hentetBookings">Booking: {{data.id}} - Room: {{data.roomId}} - From: {{data.timeblock}}  <button class="btn-danger" style="font-size: small;color: black">Delete this bookingTemplate</button></li>
+
+      <li> Booking: {{booking.id}}.  Room {{booking.roomId}}.  from {{booking.timeblock}}  <button class="btn-danger" style="font-size: small;color: black">Delete this bookingTemplate</button></li>
+      <li> Room 4 from 16-18 <button class="btn-danger" style="font-size: small;color: black">Delete this bookingTemplate</button> </li>
+      <li> Room 4 from 16-18 <button class="btn-danger" style="font-size: small;color: black">Delete this bookingTemplate</button> </li>
+      <li> Room 4 from 16-18 <button class="btn-danger" style="font-size: small;color: black">Delete this bookingTemplate</button> </li>
+      <li> Room 4 from 16-18 <button class="btn-danger" style="font-size: small;color: black">Delete this bookingTemplate</button> </li>
     </ul>
     <-->
   </div>
+  <h3 *ngIf="!isUserLoggedIn">Du skal være logget ind for at tilgå denne side!</h3>
 </div>
 </div>
+

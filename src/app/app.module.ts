@@ -20,6 +20,8 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatTableModule} from '@angular/material/table';
+import {TopbarUdenknapperComponent} from './navigation/topbar-udenknapper/topbar-udenknapper.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -35,14 +37,16 @@ import {MatTableModule} from '@angular/material/table';
     BrugeroplysningerComponent,
     Gruppe20Component,
     TopbarUdenknapperComponent,
-    ConfirmDeleteComponent
-
+    ConfirmDeleteComponent,
+    TopbarUdenknapperComponent
   ],
   imports: [
     BrowserModule,
     MaterialModule,
     HttpClientModule,
     AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule,
     MatIconModule,
     MatButtonModule,
     MatDialogModule,

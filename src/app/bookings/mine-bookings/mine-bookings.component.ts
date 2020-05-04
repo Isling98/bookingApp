@@ -6,6 +6,7 @@ import {map} from 'rxjs/operators';
 import {httpheaderService} from '../../shared-services/httpheader.service';
 import {DeletedialogService} from '../../shared-services/deletedialog.service';
 import {MatTableDataSource} from '@angular/material/table';
+import {LoginService} from '../../shared-services/login.service';
 
 @Component({
   selector: 'app-mybookings',
@@ -13,13 +14,18 @@ import {MatTableDataSource} from '@angular/material/table';
   styleUrls: ['./mine-bookings.component.css']
 })
 export class MineBookingsComponent implements OnInit {
+  public isUserLoggedIn = this.loginService.getisUserLoggedIn;
+
   public booking: BookingModel = new BookingModel();
 
   hentetBookings = [];
   listData: MatTableDataSource<any>;
   displayedColumns: string[] = ['id', 'roomId', 'timeblock', 'month', 'day', 'delete'];
 
-  constructor(private http: HttpClient, private httpHeader: httpheaderService, private deletedialogService: DeletedialogService) {}
+  constructor(private http: HttpClient,
+              private httpHeader: httpheaderService,
+              private deletedialogService: DeletedialogService,
+              private loginService: LoginService) {}
 
   ngOnInit(): void {
     this.fetchData();

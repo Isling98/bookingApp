@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import {NgForm} from '@angular/forms';
 import {ActivatedRoute, Router} from '@angular/router';
 import {LoginService} from '../../shared-services/login.service';
-import {httpheaderService} from '../../shared-services/httpheader.service';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {BrugerService} from '../../shared-services/bruger.service';
+import {Bruger} from '../../brugeroplysninger/bruger.model';
+import {NgForm} from '@angular/forms';
+
 
 @Component({
   selector: 'app-login-screen',
@@ -10,40 +13,55 @@ import {httpheaderService} from '../../shared-services/httpheader.service';
   styleUrls: ['./login-screen.component.css']
 })
 export class LoginScreenComponent implements OnInit {
-
   constructor(private router: Router,
               private route: ActivatedRoute,
               private loginService: LoginService,
-              private httpheader: httpheaderService) { }
+              private http: HttpClient,
+              private brugerService: BrugerService) {
+  }
+
+  public bruger: Bruger = this.brugerService.getBruger();
 
   ngOnInit(): void {
-    console.log(this.loginService.getUserLoggedIn());
+    console.log(this.loginService.getisUserLoggedIn);
   }
 
-  onSubmit(e) {
-    console.log(e);
-    const brugernavn = e.target.elements[0].value;
-    const adgangskode = e.target.elements[1].value;
-    console.log(brugernavn, adgangskode);
+ onSubmit(form: NgForm) {
+   console.log(form);
+   const brugernavn = form.value.brugernavn;
+   const adgangskode = form.value.adgangskode;
+   const body = {username: brugernavn, password: adgangskode};
+
+   // Giver det tomme brugerobjekt et studienummer, der kan bruges til næste GET-kald i brugeroplysninger.ts
+   this.bruger.username = brugernavn;
+
+// login api metode
+   this.http.post<boolean>('http://ec2-3-21-232-61.us-east-2.compute.amazonaws.com:8081/login', body).subscribe
+     (data => {
+        this.loginService.setisUserLoggedIn = data; }); // Gemmer returneret boolean for login.
+   setTimeout(() => {
+            if (this.loginService.getisUserLoggedIn) {
+                 this.loginService.setHTTPString = brugernavn + ':' + adgangskode;
+                 this.brugerService.setBruger(this.bruger);
+                 this.router.navigate(['/brugeroplysninger'], {relativeTo: this.route});
+               } else {
+                 this.loginService.setisUserLoggedIn = false;
+                 this.router.navigate(['/forkert-adgangskode'], {relativeTo: this.route});
+             }}, 5000);
+ }
 
 
-    //test med httpheader - gør ikke noget
-    this.httpheader.httpheaderset(brugernavn, adgangskode);
-    console.log(this.httpheader.httpheaderset(brugernavn, adgangskode));
-
-
-
-
-    if (brugernavn === 'test' && adgangskode === 'test') {
-      this.loginService.setUserLoggedIn(true);
-      console.log(this.loginService.getUserLoggedIn());
-      this.router.navigate(['/ny-booking'], {relativeTo: this.route});
-    } else {
-      this.loginService.setUserLoggedIn(false);
-      console.log(this.loginService.getUserLoggedIn());
-      this.router.navigate(['/forkert-adgangskode'], {relativeTo: this.route});
-
-
-    }
-  }
+  //       public login(brugernavn: string, adgangskode: string, loggetInd: boolean) {
+  //       if (loggetInd) {
+  //         this.loginService.setisUserLoggedIn = true;
+  //         this.loginService.setHTTPString = brugernavn + ':' + adgangskode;
+  //         this.brugerService.setBruger(this.bruger);
+  //         this.router.navigate(['/ny-booking'], {relativeTo: this.route});
+  //       } else {
+  //         this.loginService.setisUserLoggedIn = false;
+  //         this.router.navigate(['/forkert-adgangskode'], {relativeTo: this.route});
+  //       }
+  // }
 }
+
+

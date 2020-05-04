@@ -1,9 +1,7 @@
-import {Component, OnInit} from '@angular/core';
 import {map} from 'rxjs/operators';
 import {HttpClient} from '@angular/common/http';
 import {BookingModel} from '../booking.model';
 import {pipe} from 'rxjs';
-
 import {Component, Input, OnInit} from '@angular/core';
 import {FormGroup} from '@angular/forms';
 import {LoginService} from '../../shared-services/login.service';
@@ -15,15 +13,11 @@ import {LoginService} from '../../shared-services/login.service';
 })
 export class LokaleBookingComponent implements OnInit {
   public isUserLoggedIn = this.loginService.getUserLoggedIn();
-
-  recipeForm: FormGroup;
-  @Input() newBooking: {personer: number, dato: number, start: number, slut: number};
-  url = 'http://ec2-3-21-232-61.us-east-2.compute.amazonaws.com:8080';
+  url = 'http://ec2-3-21-232-61.us-east-2.compute.amazonaws.com:8081';
   hentetBookings = [];
   dato: Date = new Date();
   datearray = [];
   date;
-  timeblockboolean = 2;
   timeblockarray = [];
   amountoftimeblocks = [];
 
@@ -33,7 +27,7 @@ export class LokaleBookingComponent implements OnInit {
   shows1sal: boolean = false;
   showforeloebige: boolean = false;
 
-  constructor(private loginService: LoginService) { }
+
   //boolean for rumledighed
   //Stue lokale 1
   stue108til12: boolean = true;
@@ -75,18 +69,13 @@ export class LokaleBookingComponent implements OnInit {
   lokalearray = [0, 1, 2, 3, 4, 5, 6];
 
 
-
-
-
-  newBooking: BookingModel = new BookingModel();
-
   showTimeblocks: boolean = true;
 
 
-  public booking: BookingModel = new BookingModel();
+  public newBooking: BookingModel = new BookingModel();
 
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private loginService: LoginService) {
   }
 
   ngOnInit(): void {

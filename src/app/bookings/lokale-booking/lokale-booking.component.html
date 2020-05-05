@@ -32,8 +32,18 @@
       </p>
 
     </div>
+
+    <script>
+      import {$} from "protractor";
+
+      $(document).ready(function(){
+        $('[data-toggle="tooltip"]').tooltip();
+      });
+    </script>
+
     <div class="col-lg-2" *ngIf="showforeloebige">
-      <button mat-flat-button id="opretbooking" color="red" (click)="opretBooking()" style="font-family: NeoSansW01, serif; font-size: 17px"  >Opret Booking</button>
+      <button *ngIf="opretbookingknap" mat-flat-button id="opretbooking" color="red" (click)="opretBooking()" style="font-family: NeoSansW01, serif; font-size: 17px"  >Opret Booking</button>
+      <button *ngIf="!opretbookingknap" class="btn btn-danger disabled" style="font-family: NeoSansW01, serif; font-size: 17px" data-toggle="tooltip" title="Vælg lokale og tidsramme forneden">Opret Booking</button>
     </div>
   </div>
 
@@ -87,17 +97,13 @@
   </div>
 <-->
   <br>
-    <div  class="row">
+    <div  class="row" *ngIf="showforeloebige">
       <div class="col-lg-2">
         <label for=1 style="float: left; font-size: 20px; ">Stue lokale 1: </label>
         <br>
         <div class="btn-group-vertical" id=1 style="min-width: 150px">
           <button *ngIf="stue108til12" class="btn btn-success" style="font-size: 20px" (click)="addTimeblockandroomId(1, 1)">08-12</button>
           <button *ngIf="!stue108til12" class="btn btn-danger disabled" style="font-size: 20px" >08-12</button>
-
-
-
-
       &nbsp;
           <button *ngIf="stue112til16" class="btn btn-success" style="font-size: 20px" (click)="addTimeblockandroomId(2, 1)">12-16</button>
           <button *ngIf="!stue112til16" class="btn btn-danger disabled" style="font-size: 20px" id=1012 >12-16</button>

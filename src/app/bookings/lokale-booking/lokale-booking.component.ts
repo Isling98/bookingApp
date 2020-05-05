@@ -9,6 +9,7 @@ import {httpheaderService} from '../../shared-services/httpheader.service';
 import {Bruger} from '../../brugeroplysninger/bruger.model';
 import {BrugerService} from '../../shared-services/bruger.service';
 import {DeletedialogService} from '../../shared-services/deletedialog.service';
+import {fakeAsync} from '@angular/core/testing';
 
 @Component({
   selector: 'app-lokale-booking',
@@ -30,6 +31,8 @@ export class LokaleBookingComponent implements OnInit {
   showstueetage: boolean = false;
   shows1sal: boolean = false;
   showforeloebige: boolean = false;
+  opretbookingknap: boolean = false;
+
 
 
   //boolean for rumledighed
@@ -228,10 +231,12 @@ export class LokaleBookingComponent implements OnInit {
     this.newBooking.month = this.datearray[0];
     this.newBooking.year = this.datearray[2];
     this.newBooking.day = this.datearray[1];
+    this.showforeloebige = true;
     console.log(this.newBooking);
 
     this.dialogService.openDialogconfirm()
       .afterClosed().subscribe(response => {
+
       console.log(response);
       console.log(this.hentetBookings);
 
@@ -241,10 +246,13 @@ export class LokaleBookingComponent implements OnInit {
             Authorization: 'Basic ' + btoa(this.loginService.getHTTPString)
           })}).subscribe(responseData => {
           console.log(responseData);
-
+          this.refresh()
+          this.opretbookingknap = false;
         });
       }
     });
+
+
   }
 
 //Timeblock opdatering så man kan se det i den foreløbige booking
@@ -263,11 +271,15 @@ export class LokaleBookingComponent implements OnInit {
 
     this.newBooking.roomId = roomId;
     this.newBooking.timeblock = timeblock;
+    this.opretbookingknap = true;
   }
 
   resettidsrum(){
     this.amountoftimeblocks.pop();
+    this.opretbookingknap = false;
+    this.newBooking.roomId = null;
   }
+
   clearbooleans(){
     this.stue108til12 = true;
     this.stue112til16 = true;

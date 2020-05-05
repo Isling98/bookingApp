@@ -43,7 +43,7 @@ export class LoginScreenComponent implements OnInit {
             if (this.loginService.getisUserLoggedIn) {
                  this.loginService.setHTTPString = brugernavn + ':' + adgangskode;
                  this.brugerService.setBruger(this.bruger);
-                 this.router.navigate(['/brugeroplysninger'], {relativeTo: this.route});
+                 this.router.navigate(['/ny-booking'], {relativeTo: this.route});
                } else {
                  this.loginService.setisUserLoggedIn = false;
                  this.router.navigate(['/forkert-adgangskode'], {relativeTo: this.route});

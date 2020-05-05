@@ -10,6 +10,7 @@ export class NavigationComponent implements OnInit {
 
   constructor(private loginService: LoginService) { }
 
+  isuserloggedin: boolean = this.loginService.getisUserLoggedIn;
 
   ngOnInit(): void {
   }

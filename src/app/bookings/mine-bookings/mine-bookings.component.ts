@@ -22,6 +22,7 @@ export class MineBookingsComponent implements OnInit {
   hentetBookings = [];
   listData: MatTableDataSource<any>;
   displayedColumns: string[] = ['id', 'roomId', 'timeblock', 'month', 'day', 'delete'];
+  harhentetbookings: boolean = false;
 
   constructor(private http: HttpClient,
               private httpHeader: httpheaderService,
@@ -63,6 +64,7 @@ export class MineBookingsComponent implements OnInit {
         console.log(data);
         this.hentetBookings = data;
         this.listData = new MatTableDataSource(this.hentetBookings);
+        this.harhentetbookings = true;
       });
   }
 

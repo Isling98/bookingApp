@@ -22,6 +22,9 @@ export class LoginScreenComponent implements OnInit {
 
   public bruger: Bruger = this.brugerService.getBruger();
 
+  korrektlogin: boolean = false;
+  ventVenligst: boolean = false;
+
   ngOnInit(): void {
     console.log(this.loginService.getisUserLoggedIn);
   }
@@ -31,6 +34,8 @@ export class LoginScreenComponent implements OnInit {
    const brugernavn = form.value.brugernavn;
    const adgangskode = form.value.adgangskode;
    const body = {username: brugernavn, password: adgangskode};
+   this.korrektlogin = false;
+   this.ventVenligst = true;
 
    // Giver det tomme brugerobjekt et studienummer, der kan bruges til næste GET-kald i brugeroplysninger.ts
    this.bruger.username = brugernavn;
@@ -46,8 +51,11 @@ export class LoginScreenComponent implements OnInit {
                  this.router.navigate(['/ny-booking'], {relativeTo: this.route});
                } else {
                  this.loginService.setisUserLoggedIn = false;
-                 this.router.navigate(['/forkert-adgangskode'], {relativeTo: this.route});
-             }}, 5000);
+                  this.korrektlogin = true;
+                  this.ventVenligst = false;
+
+                 //this.router.navigate(['/forkert-adgangskode'], {relativeTo: this.route});
+             }}, 3500);
  }
 
 

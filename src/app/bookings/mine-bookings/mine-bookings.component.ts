@@ -21,7 +21,7 @@ export class MineBookingsComponent implements OnInit {
 
   hentetBookings = [];
   listData: MatTableDataSource<any>;
-  displayedColumns: string[] = ['id', 'roomId', 'timeblock', 'month', 'day', 'delete'];
+  displayedColumns: string[] = ['roomId', 'timeblock', 'day', 'delete'];
   harhentetbookings: boolean = false;
 
   constructor(private http: HttpClient,
@@ -32,21 +32,11 @@ export class MineBookingsComponent implements OnInit {
 
   ngOnInit(): void {
     this.fetchData();
-
-    const username = 's180077';
-    const password = '123';
-    const authorizationData = 'Basic ' + btoa(username + ':' + password);
-
-    const headerOptions = {
-      headers: new HttpHeaders({
-        Authorization: authorizationData
-      })
-    };
   }
 
   public fetchData() {
     this.http.get<JSON>('http://ec2-3-21-232-61.us-east-2.compute.amazonaws.com:8081/bookings/user/'
-    + this.brugerService.getBruger().id,
+    + this.brugerService.getBruger().username + '/upcoming',
       { headers: new HttpHeaders({
           'Content-Type':  'application/json',
           Authorization: 'Basic ' + btoa(this.loginService.getHTTPString)
@@ -85,5 +75,17 @@ export class MineBookingsComponent implements OnInit {
             });
         }
     });
+  }
+
+  convertTime(timeblock: number){
+    if (timeblock == 1){
+      return "08-12"
+    } else if (timeblock == 2){
+      return "12-16"
+    } else if (timeblock == 3){
+      return "16-20"
+    } else if (timeblock == 4){
+      return "20-24"
+    }
   }
 }

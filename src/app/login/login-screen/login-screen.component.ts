@@ -55,7 +55,9 @@ export class LoginScreenComponent implements OnInit {
                   this.ventVenligst = false;
 
                  //this.router.navigate(['/forkert-adgangskode'], {relativeTo: this.route});
-             }}, 3500);
+             }}, 4000);
+
+
  }
 
 

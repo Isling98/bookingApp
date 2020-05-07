@@ -10,11 +10,6 @@
       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
       <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 
-      <ng-container matColumnDef="id">
-        <mat-header-cell *matHeaderCellDef>Booking id</mat-header-cell>
-        <mat-cell *matCellDef="let element">{{element.id}}</mat-cell>
-      </ng-container>
-
       <ng-container matColumnDef="roomId">
         <mat-header-cell *matHeaderCellDef>Room id</mat-header-cell>
         <mat-cell *matCellDef="let element">{{element.roomId}}</mat-cell>
@@ -22,17 +17,12 @@
 
       <ng-container matColumnDef="timeblock">
         <mat-header-cell *matHeaderCellDef>Timeblock</mat-header-cell>
-        <mat-cell *matCellDef="let element">{{element.timeblock}}</mat-cell>
-      </ng-container>
-
-      <ng-container matColumnDef="month">
-        <mat-header-cell *matHeaderCellDef>Month</mat-header-cell>
-        <mat-cell *matCellDef="let element">{{element.month}}</mat-cell>
+        <mat-cell  *matCellDef="let element">{{convertTime(element.timeblock)}}</mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="day">
         <mat-header-cell *matHeaderCellDef>Day</mat-header-cell>
-        <mat-cell *matCellDef="let element">{{element.day}}</mat-cell>
+        <mat-cell *matCellDef="let element">{{element.day}} / {{element.month}} / {{element.year}}</mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="delete">

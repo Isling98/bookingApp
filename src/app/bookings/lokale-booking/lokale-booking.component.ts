@@ -109,7 +109,7 @@ export class LokaleBookingComponent implements OnInit {
           this.brugerService.setBruger(this.bruger);
           console.log(this.brugerService.getBruger());
         },
-        5000);
+        4000);
     } else { this.bruger = null; }
   }
 
@@ -143,16 +143,16 @@ export class LokaleBookingComponent implements OnInit {
           if (this.timeblockarray[i]['roomId'] == 1) {
           if (this.timeblockarray[i]['timeblock'] == 1) {
             this.stue108til12 = false;
-            console.log(this.stue108til12);
+
           } else if (this.timeblockarray[i]['timeblock'] == 2) {
             this.stue112til16 = false;
-            console.log(this.stue112til16);
+
           } else if (this.timeblockarray[i]['timeblock'] == 3) {
             this.stue116til20 = false;
-            console.log(this.stue116til20);
+
           } else if (this.timeblockarray[i]['timeblock'] == 4) {
             this.stue120til24 = false;
-            console.log(this.stue120til24);
+
           }
         }
           if (this.timeblockarray[i]['roomId'] == 2) {
@@ -210,7 +210,6 @@ export class LokaleBookingComponent implements OnInit {
               this.stue620til24 = false;
             }
           }
-          console.log(this.timeblockarray);
           this.timeblockarray[i]['username'] = data[i]['username'];
           this.timeblockarray[i]['id'] = data[i]['id'];
 
@@ -220,10 +219,7 @@ export class LokaleBookingComponent implements OnInit {
         this.showforeloebige = true;
         this.hentetBookings = data;
 
-
-
       });
-    console.log(this.timeblockarray);
     this.resettidsrum();
 
 

@@ -1,24 +1,20 @@
 <div class="container" *ngIf="isUserLoggedIn">
   <div class="row">
-  <div class="col-lg-12">
-    <div>
-    <h3>Brugeroplysninger</h3>
-    <hr>
-      <div class="col-lg-10" align="left">
-              <img src="/assets/img/empty-profile.png" alt="NoPicture" align="right"
-                   style="max-width: 200px; max-height: 150px;  min-width: 200px; min-height: 150px;">
+  <div class="col-lg-8">
+              <img src="https://www.dtubasen.dtu.dk/showimage.aspx?id={{this.bruger.campusId}}" alt="NoPicture" align="right"
+                   style="max-width: 200px; max-height: 250px;  min-width: 200px; min-height: 150px;">
 
         <p><strong>Brugernavn: </strong>{{bruger.username}}</p>
         <p><strong>Fornavn: </strong>{{bruger.firstName}}</p>
         <p><strong>Efternavn: </strong>{{bruger.lastName}}</p>
-        <hr>
-      </div>
-  </div>
 
 </div>
+
   </div>
+  <br>
+  <br>
   <div *ngIf="!passwordChanged" class="row">
-    <div class="col-lg-12">
+    <div class="col-lg-8">
       <h3>Skift din adgangskode:</h3>
       <div class="form-group">
         <label for="glPassword">Indtast din gamle adgangskode: </label>
@@ -35,9 +31,12 @@
       <button mat-flat-button id="opretbooking" color="red" (click)="skiftPassword()" style="font-family: NeoSansW01, serif; font-size: 17px"  >Skift adgangskode</button>
     </div>
   </div>
-  <div *ngIf="changingPassword" class="row" style="">
+  <div class="row" *ngIf="!passwordChanged">
+    <h3 style=""></h3>
+  </div>
+  <div *ngIf="!passwordChanged" class="row" style="">
     <div class="col-lg-12">
-      <h3>Skifter din adgangskode... Vent venligst</h3>
+      <h3 style="font-family: NeoSansW01, serif; font-size: 17px; color: crimson" >OBS. Af sikkerhedsmæssige årsager bliver du logget ud når din adgangskode er ændret</h3>
     </div>
   </div>
 

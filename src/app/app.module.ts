@@ -8,7 +8,6 @@ import { LokaleBookingComponent } from './bookings/lokale-booking/lokale-booking
 import { MineBookingsComponent } from './bookings/mine-bookings/mine-bookings.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HttpClientModule } from '@angular/common/http';
-import { LoginFailedComponent } from './login/login-failed/login-failed.component';
 import {AppRoutingModule} from './app-routing.module';
 import { LokaleoversigtComponent } from './bookings/lokaleoversigt/lokaleoversigt.component';
 import { BrugeroplysningerComponent } from './brugeroplysninger/brugeroplysninger.component';
@@ -36,7 +35,6 @@ import {ConfirmOpretComponent} from './bookings/lokale-booking/confirm-opret/con
     LokaleBookingComponent,
     MineBookingsComponent,
     PageNotFoundComponent,
-    LoginFailedComponent,
     LokaleoversigtComponent,
     BrugeroplysningerComponent,
     Gruppe20Component,

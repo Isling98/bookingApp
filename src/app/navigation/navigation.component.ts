@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {LoginService} from '../shared-services/login.service';
+import {BrugerService} from '../shared-services/bruger.service';
 
 @Component({
   selector: 'app-topbar',
@@ -8,7 +9,7 @@ import {LoginService} from '../shared-services/login.service';
 })
 export class NavigationComponent implements OnInit {
 
-  constructor(private loginService: LoginService) { }
+  constructor(public loginService: LoginService, public brugerService: BrugerService) { }
 
   isuserloggedin: boolean = this.loginService.getisUserLoggedIn;
 

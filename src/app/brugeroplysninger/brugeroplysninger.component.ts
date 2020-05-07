@@ -6,6 +6,8 @@ import {Bruger} from './bruger.model';
 import {ngModuleJitUrl} from '@angular/compiler';
 import {root} from 'rxjs/internal-compatibility';
 import {newPasswordModel} from './newPassword.model';
+import {AppRoutingModule} from '../app-routing.module';
+import {Router, RouterModule} from '@angular/router';
 
 @Component
 ({
@@ -36,7 +38,8 @@ export class BrugeroplysningerComponent implements OnInit {
 
   constructor(private http: HttpClient,
               private loginService: LoginService,
-              private brugerService: BrugerService) { }
+              private brugerService: BrugerService,
+              private router: Router) { }
 
   ngOnInit() {
 
@@ -47,7 +50,7 @@ export class BrugeroplysningerComponent implements OnInit {
     this.changingPassword = true;
     this.newPasswordModel.currentPassword = (document.getElementById('glPassword') as HTMLInputElement).value;
     this.newPasswordModel.newPassword = (document.getElementById('nyePassword') as HTMLInputElement).value;
-this.newPasswordModel.username = this.username;
+    this.newPasswordModel.username = this.username;
     this.http.put(this.url + 'users/newpassword', this.newPasswordModel, { headers: new HttpHeaders({
         'Content-Type':  'application/json',
         Authorization: 'Basic ' + btoa(this.loginService.getHTTPString)
@@ -56,8 +59,15 @@ this.newPasswordModel.username = this.username;
       console.log(responseData);
       this.changingPassword = false;
       this.passwordChanged = true;
+      this.loginService.setisUserLoggedIn = false;
+      this.logUd()
     }));
 
 
+  }
+  logUd() {
+    this.loginService.setisUserLoggedIn = false;
+    console.log(this.loginService.getisUserLoggedIn);
+    this.router.navigate(['/login'])
   }
 }

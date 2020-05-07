@@ -11,24 +11,24 @@
       <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
 
       <ng-container matColumnDef="roomId">
-        <mat-header-cell *matHeaderCellDef>Room id</mat-header-cell>
+        <mat-header-cell *matHeaderCellDef>Lokale nr.</mat-header-cell>
         <mat-cell *matCellDef="let element">{{element.roomId}}</mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="timeblock">
-        <mat-header-cell *matHeaderCellDef>Timeblock</mat-header-cell>
+        <mat-header-cell *matHeaderCellDef>Tidspunkt</mat-header-cell>
         <mat-cell  *matCellDef="let element">{{convertTime(element.timeblock)}}</mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="day">
-        <mat-header-cell *matHeaderCellDef>Day</mat-header-cell>
+        <mat-header-cell *matHeaderCellDef>Dato</mat-header-cell>
         <mat-cell *matCellDef="let element">{{element.day}} / {{element.month}} / {{element.year}}</mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="delete">
-        <mat-header-cell *matHeaderCellDef>Delete</mat-header-cell>
+        <mat-header-cell *matHeaderCellDef></mat-header-cell>
         <mat-cell *matCellDef="let row">
-          <button mat-flat-button id="delete-buttom" color="red" (click)="confirmDeleteBooking(row.id)">Delete this booking</button>
+          <button mat-flat-button id="delete-buttom" color="red" (click)="confirmDeleteBooking(row.id)">Slet denne booking</button>
         </mat-cell>
       </ng-container>
 

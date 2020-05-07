@@ -6,7 +6,7 @@ import {Bruger} from '../brugeroplysninger/bruger.model';
 })
 export class BrugerService {
 
-  public bruger: Bruger = new Bruger(null, '', '', '', []);
+  public bruger: Bruger = new Bruger(null, '', '', '', [], null);
 
   getBruger() {
     return this.bruger;

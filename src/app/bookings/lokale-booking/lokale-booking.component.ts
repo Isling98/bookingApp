@@ -99,9 +99,11 @@ export class LokaleBookingComponent implements OnInit {
             'Content-Type':  'application/json',
             Authorization: 'Basic ' + btoa(this.loginService.getHTTPString)
           })}).subscribe
-      (data => {this.bruger.id = data['id'], this.bruger.username = data['username'],
-        this.bruger.firstName = data['firstName'], this.bruger.lastName = data['lastName'],
-        this.bruger.bookingList = data['bookingList']; });
+      (data => {this.bruger.id = data['id']; this.bruger.username = data['username'];
+        this.bruger.firstName = data['firstName']; this.bruger.lastName = data['lastName'];
+        this.bruger.bookingList = data['bookingList'];
+        this.bruger.campusId = data['campusId'];
+      });
 
       // Venter på at data er hentet helt ned og skriver så til bruger.service.
       setTimeout(() => {

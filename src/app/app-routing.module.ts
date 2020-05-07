@@ -2,7 +2,6 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {LoginScreenComponent} from './login/login-screen/login-screen.component';
 import {LokaleBookingComponent} from './bookings/lokale-booking/lokale-booking.component';
-import {LoginFailedComponent} from './login/login-failed/login-failed.component';
 import {MineBookingsComponent} from './bookings/mine-bookings/mine-bookings.component';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {Gruppe20Component} from './gruppe20/gruppe20.component';
@@ -16,7 +15,6 @@ const appRoutes: Routes = [
   {path: 'ny-booking', component: LokaleBookingComponent},
   {path: 'mine-bookings', component: MineBookingsComponent},
   {path: 'lokaleoversigt', component: LokaleoversigtComponent},
-  {path: 'forkert-adgangskode', component: LoginFailedComponent},
   {path: 'brugeroplysninger', component: BrugeroplysningerComponent},
   {path: 'gruppe20', component: Gruppe20Component},
   {path: 'not-found', component: PageNotFoundComponent},

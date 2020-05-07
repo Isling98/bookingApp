@@ -1,14 +1,16 @@
 <div class="container" *ngIf="isUserLoggedIn">
+  <br>
   <div class="row">
-  <div class="col-lg-8">
-              <img src="https://www.dtubasen.dtu.dk/showimage.aspx?id={{this.bruger.campusId}}" alt="NoPicture" align="right"
-                   style="max-width: 200px; max-height: 250px;  min-width: 200px; min-height: 150px;">
+  <div class="col-lg-2">
+              <img src="https://www.dtubasen.dtu.dk/showimage.aspx?id={{this.bruger.campusId}}" alt="NoPicture"
+                   style="max-width: 200px; max-height: 250px;  min-width: 200px; min-height: 150px; margin-right: 20px">
+  </div>
+    <div class="col-lg-2" style="margin-left: 40px">
+        <h3><strong>Brugernavn: </strong>{{bruger.username}}</h3>
+        <h3><strong>Fornavn: </strong>{{bruger.firstName}}</h3>
+        <h3><strong>Efternavn: </strong>{{bruger.lastName}}</h3>
 
-        <p><strong>Brugernavn: </strong>{{bruger.username}}</p>
-        <p><strong>Fornavn: </strong>{{bruger.firstName}}</p>
-        <p><strong>Efternavn: </strong>{{bruger.lastName}}</p>
-
-</div>
+    </div>
 
   </div>
   <br>

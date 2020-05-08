@@ -107,9 +107,7 @@ export class LokaleBookingComponent implements OnInit {
 
       // Venter på at data er hentet helt ned og skriver så til bruger.service.
       setTimeout(() => {
-          console.log(this.bruger);
           this.brugerService.setBruger(this.bruger);
-          console.log(this.brugerService.getBruger());
         },
         4000);
     } else { this.bruger = null; }
@@ -250,20 +248,15 @@ export class LokaleBookingComponent implements OnInit {
     this.newBooking.year = this.datearray[2];
     this.newBooking.day = this.datearray[1];
     this.showforeloebige = true;
-    console.log(this.newBooking);
 
     this.dialogService.openDialogconfirm()
       .afterClosed().subscribe(response => {
-
-      console.log(response);
-      console.log(this.hentetBookings);
 
       if (response === true) {
         this.http.post(this.url + '/bookings/', JSON.stringify(this.newBooking), { headers: new HttpHeaders({
             'Content-Type':  'application/json',
             Authorization: 'Basic ' + btoa(this.loginService.getHTTPString)
           })}).subscribe(responseData => {
-          console.log(responseData);
           this.refresh()
           this.opretbookingknap = false;
         });

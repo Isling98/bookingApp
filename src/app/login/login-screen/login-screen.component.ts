@@ -26,7 +26,6 @@ export class LoginScreenComponent implements OnInit {
   ventVenligst: boolean = false;
 
   ngOnInit(): void {
-    console.log(this.loginService.getisUserLoggedIn);
   }
 
  onSubmit(form: NgForm) {

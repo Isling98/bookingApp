@@ -51,7 +51,6 @@ export class MineBookingsComponent implements OnInit {
         return postArray;
       }))
       .subscribe(data => {
-        console.log(data);
         this.hentetBookings = data;
         this.listData = new MatTableDataSource(this.hentetBookings);
         this.harhentetbookings = true;
@@ -61,11 +60,8 @@ export class MineBookingsComponent implements OnInit {
   confirmDeleteBooking(id: number) {
     this.deletedialogService.openDialog()
       .afterClosed().subscribe(response => {
-        console.log(response);
-        console.log(this.hentetBookings);
 
         if (response === true) {
-          console.log(id);
           this.http.delete('http://ec2-3-21-232-61.us-east-2.compute.amazonaws.com:8081/bookings/' + id,
             { headers: new HttpHeaders({
               'Content-Type':  'application/json',

@@ -6,9 +6,9 @@
                    style="max-width: 200px; max-height: 250px;  min-width: 200px; min-height: 150px; margin-right: 20px">
   </div>
     <div class="col-lg-2" style="margin-left: 40px">
-        <h3><strong>Brugernavn: </strong>{{bruger.username}}</h3>
-        <h3><strong>Fornavn: </strong>{{bruger.firstName}}</h3>
-        <h3><strong>Efternavn: </strong>{{bruger.lastName}}</h3>
+        <h3 style="font-family: NeoSansW01, serif"><strong>Brugernavn: </strong>{{bruger.username}}</h3>
+        <h3 style="font-family: NeoSansW01, serif"><strong>Fornavn: </strong>{{bruger.firstName}}</h3>
+        <h3 style="font-family: NeoSansW01, serif"><strong>Efternavn: </strong>{{bruger.lastName}}</h3>
 
     </div>
 
@@ -17,13 +17,13 @@
   <br>
   <div *ngIf="!passwordChanged" class="row">
     <div class="col-lg-8">
-      <h3>Skift din adgangskode:</h3>
+      <h3 style="font-family: NeoSansW01, serif">Skift din adgangskode:</h3>
       <div class="form-group">
-        <label for="glPassword">Indtast din gamle adgangskode: </label>
+        <label for="glPassword" style="font-family: NeoSansW01, serif">Indtast din gamle adgangskode: </label>
         <input type="text" class="form-control" id="glPassword">
       </div>
       <div class="form-group">
-        <label for="nyePassword">Indtast din nye adgangskode: </label>
+        <label for="nyePassword" style="font-family: NeoSansW01, serif">Indtast din nye adgangskode: </label>
         <input type="password" class="form-control" id="nyePassword">
       </div>
     </div>

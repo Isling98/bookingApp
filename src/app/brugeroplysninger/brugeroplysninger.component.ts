@@ -55,8 +55,6 @@ export class BrugeroplysningerComponent implements OnInit {
         'Content-Type':  'application/json',
         Authorization: 'Basic ' + btoa(this.loginService.getHTTPString)
       })}).subscribe((responseData => {
-        console.log(this.newPasswordModel);
-      console.log(responseData);
       this.changingPassword = false;
       this.passwordChanged = true;
       this.loginService.setisUserLoggedIn = false;
@@ -67,7 +65,6 @@ export class BrugeroplysningerComponent implements OnInit {
   }
   logUd() {
     this.loginService.setisUserLoggedIn = false;
-    console.log(this.loginService.getisUserLoggedIn);
     this.router.navigate(['/login'])
   }
 }

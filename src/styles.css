@@ -1,4 +1,196 @@
 /* You can add global styles to this file, and also import other style files */
 
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+@font-face {
+  font-family: dtuFont;
+  src: url("/assets/fonts/dtuFont.woff");
+}
+.vl{
+  border-left: 1px solid black;
+  height: 50px;
+}
+.btnkalender{
+  border: none;
+  background-color: lightgray;
+  padding: 14px 28px;
+  font-size: 25px;
+  font-family: NeoSansW01, serif;
+  cursor: pointer;
+  display: inline-block;
+  border-radius: 10px;
+}
+
+.success {color: green;}
+.info {color: dodgerblue;}
+.warning {color: orange;}
+.danger {color: red;}
+.default {color: black;}
+
+.mouseoverpointer{
+  cursor: pointer;
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  background-color: inherit;
+  color: black;
+  padding: 2px;
+  font-size: 16px;
+  font-family: NeoSansW01, serif;
+  border: none;
+}
+#drop-content{
+  position: absolute;
+  z-index: 1;
+
+}
+#drop-content a{
+  display: inline-block;
+  padding: 5px;
+  background: #eee ;
+  text-decoration: none;
+  margin-top: 2px;
+  position: relative;
+  border-radius: 25px;
+}
+#drop-content {
+  display: inline-block;
+  padding: 5px;
+  background: #eee ;
+  text-decoration: none;
+  margin-top: 2px;
+  position: relative;
+  border-radius: 25px;
+}
+
+.boxblue{
+  width: 1140px;
+  padding: 10px;
+  border-color: #ff9aa7;
+  background-color: aliceblue;
+  border-style: inherit;
+
+}
+.boxgray{
+  width: auto;
+  padding: 10px;
+  border-color: #ff9aa7;
+  background-color: rgba(211, 211, 211, 0.17);
+  border-radius: 25px;
+}
+.boxgraygradient{
+  background-image: linear-gradient(#ededed, rgba(238, 238, 238, 0.17), rgba(150, 150, 150, 0.29));
+}
+
+
+body {
+  margin:0;
+  font-family: Sans-Serif;
+  line-height: 1.5em;
+
+}
+
+.mt-0 {
+  margin-top: 0px !important;
+}
+.mt-1{
+  margin-top: 10px;
+}
+
+#header {
+  background: inherit;
+  height: 100px;
+}
+
+#header h1 {
+  margin: 0;
+  padding-top: 15px;
+}
+
+main {
+  padding-bottom: 10010px;
+  margin-bottom: -10000px;
+  float: left;
+  width: 100%;
+}
+
+#nav {
+  padding-bottom: 10010px;
+  margin-bottom: -10000px;
+  float: left;
+  width: 230px;
+  margin-left: -100%;
+  background: #eee;
+}
+
+#footer {
+  clear: left;
+  width: 100%;
+  background: #ccc;
+  text-align: center;
+  padding: 4px 0;
+}
+
+#wrapper {
+  overflow: hidden;
+}
+
+#content {
+  margin-left: 230px; /* Same as 'nav' width */
+}
+
+.innertube {
+  margin: 15px; /* Padding for content */
+  margin-top: 0;
+}
+
+p {
+  color: #555;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.lokalebillede{
+  width: 200px;
+  height: 150px;
+  float: left;
+
+}
+
+.lokaleheader{
+  color: red;
+  font-family: NeoSansW01, serif;
+}
+
+.mat-flat-button.mat-red{
+  background-color: #990000;
+  color: white;
+}
+
+
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:black;}
+.tg .tg-cly1{text-align:left;vertical-align:middle}
+.tg .tg-0lax{text-align:left;vertical-align:top}
+
+
+
+
+
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

@@ -1,0 +1,21 @@
+header {
+  text-align: center;
+  font-size: 20px;
+  padding: 10px;
+  border-bottom: 1px solid darkgray;
+}
+.divider-vertical {
+  height: 40px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
+}
+
+.divider-horizontal {
+  width: 400px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
+}

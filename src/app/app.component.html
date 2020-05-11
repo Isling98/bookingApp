@@ -1,6 +1,8 @@
 <div id="fullPage">
-  <app-topbar></app-topbar>
-
+  <app-topbar *ngIf="!router.url.includes('login' || 'not-found')"></app-topbar>
+<!--  <app-topbar *ngIf="isUserLoggedIn"></app-topbar>-->
+  <app-topbar-udenknapper *ngIf="router.url.includes('login' || 'not-found')"></app-topbar-udenknapper>
+<!--  <app-topbar-udenknapper *ngIf="!isUserLoggedIn"></app-topbar-udenknapper>-->
+  <br>
   <router-outlet></router-outlet>
-
 </div>
